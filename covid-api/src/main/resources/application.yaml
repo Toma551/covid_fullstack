@@ -1,0 +1,22 @@
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/covid-db
+    username: postgres
+    password: password
+  jpa:
+      database-platform: org.hibernate.dialect.PostgreSQLDialect
+      open-in-view: false
+      show-sql: true
+      hibernate.ddl-auto: update
+  liquibase:
+    enabled: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus,metrics
