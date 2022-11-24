@@ -1,0 +1,34 @@
+<div class="detail" *ngIf="center">
+    Centre sélectionné :<h3 [title] = "center.name" ><a routerLink="/centers/detail/{{center.id_vaccination_center}}">{{center.name | uppercase}}</a></h3>
+    <div>{{center.adresse | lowercase}} <span>{{center.postal_code}} {{center.city}}</span></div>
+
+    <!--<div>Ouvert depuis le {{center.openingDate | date:'dd/MM/Y'}}</div>-->
+</div>
+
+<div *ngIf="URL && center">
+  <button>
+    Prendre rendez-vous dans ce centre
+  </button>
+  <br>
+  <button routerLink="/centers">
+    Retour
+  </button>
+</div>
+
+<!--
+<div>
+    <button (click)="clearName()">Clear Name</button>
+</div>
+
+<div class="detail" *ngIf="center">
+    <label for="name">Nom du centre:</label>
+    <input id="name" [(ngModel)]="center.name" />
+</div>
+
+<div>
+  <button (click)="delete()">Supprimer</button>
+</div>
+
+-->
+
+

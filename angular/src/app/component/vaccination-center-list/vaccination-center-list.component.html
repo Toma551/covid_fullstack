@@ -1,0 +1,17 @@
+<div>
+  <label for="city">Recherche par ville : </label>
+  <input id="city" [(ngModel)]="search_entry" />
+  <button (click)="searchCenterByCity(search_entry)">
+    Chercher
+  </button>
+</div>
+
+<ul>
+    <li *ngFor="let aCenter of centers">
+        <button [ngClass]="selected==aCenter ? 'selected' : ''" [ngStyle]="{'font_weight' : isSpecialCenter(aCenter) ? 'bold' : 'normal'} " (click)="selectCenter(aCenter)">
+          {{aCenter.name}}
+        </button>
+    </li>
+</ul>
+
+<app-vaccination-center [center]="selected" (deleted)="onDeleted($event)" ></app-vaccination-center>
