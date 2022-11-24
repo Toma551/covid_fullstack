@@ -1,9 +1,9 @@
-<div>
-  <label>Username : </label>
-  <input [(ngModel)]="username"/>
+<div class = username>
+  <input [(ngModel)]="username" placeholder="Nom d'utilisateur"/>
 </div>
-<div>
-  <label>Password : </label>
-  <input [(ngModel)]="password" type="password"/>
+<div class = password>
+  <input [(ngModel)]="password" placeholder="Mot de passe" type="password"/>
 </div>
-<button (click)="connect()">Login</button>
+<div class = button>
+  <button (click)="connect()">Login</button>
+</div>
