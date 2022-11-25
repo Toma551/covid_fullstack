@@ -20,7 +20,6 @@ export class AuthGuard implements CanActivate {
         console.log("Is Not logged")
         return this.router.parseUrl("login");
       }
-
     };
   }
 

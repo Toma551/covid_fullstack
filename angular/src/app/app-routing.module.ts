@@ -7,7 +7,7 @@ import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: "centers", component: VaccinationCenterListComponent, canActivate: [AuthGuard]},
+  {path: "centers", component: VaccinationCenterListComponent}, //, canActivate: [AuthGuard]},
   {path: "centers/detail/:id_vaccination_center", component: VaccinationCenterComponent},
   {path: '', redirectTo: 'centers', pathMatch: 'full'},
 ];

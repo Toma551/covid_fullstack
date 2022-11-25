@@ -20,6 +20,7 @@ export class LoginService {
 
   connect(username: string, password: string): Observable<any> {
     let token = this.createToken(username, password);
+    console.log(token);
     let options = {
       headers: {
         'Authorization': token
@@ -30,6 +31,8 @@ export class LoginService {
       this.username = username;
       this.isLoggedSubject.next(true);
       console.log("Connected")
+      console.log(this.username);
+      console.log(this.password);
     }))
   }
 
@@ -49,6 +52,8 @@ export class LoginService {
 
 
   authHasBasic(): boolean {
+    console.log(this.username);
+    console.log(this.password);
     return !!this.password && !!this.username;
   }
 
