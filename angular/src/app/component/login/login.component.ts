@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
 
   connect(): void {
     this.loginService.connect(this.username, this.password).subscribe(value => {
-      console.log("blabla");
       this.router.navigate(["centers"])
     });
   }
