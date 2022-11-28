@@ -6,12 +6,17 @@ import io.github.bucket4j.*;
 import org.polytech.covid.entity.VaccinationCenter;
 import org.polytech.covid.repository.VaccinationCenterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import java.time.Duration;
+
+import org.polytech.covid.dto.*;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import java.time.Duration;
 
 @RestController
 public class PublicVaccinationCenterRestController {
@@ -22,9 +27,11 @@ public class PublicVaccinationCenterRestController {
     //rajoute 10 tokens toutes les minutes
     Refill refill = Refill.intervally(10, Duration.ofMinutes(1));
     //capacité max de 10 token
-    Bandwidth limit = Bandwidth.classic(3, refill);
+    Bandwidth limit = Bandwidth.classic(10, refill);
     Bucket bucket = Bucket.builder().addLimit(limit).build();
-
+    final String remainning = "X-Rate-Limit-Remaining";
+    final String retryAfter = "X-Rate-Limit-Retry-After-Seconds";
+    
     /* 
     private static final List<VaccinationCenter> CENTERS = Arrays.asList(
         new VaccinationCenter(1,"test","addr","54","nancy",null),
@@ -62,4 +69,25 @@ public class PublicVaccinationCenterRestController {
                 //return centerRepository.findAll();
                 return centerRepository.findById(id).orElse(null);
             }
+
+
+    @CrossOrigin(exposedHeaders = {remainning, retryAfter})
+    @GetMapping(path = "api/public/infos/429")
+    public ResponseEntity<Data> infos() {
+        HttpHeaders headers = new HttpHeaders();
+        ConsumptionProbe probe = bucket.tryConsumeAndReturnRemaining(2);
+
+        if(probe.isConsumed()) {
+            headers.add("X-Rate-Limit-Remaining", Long.toString(probe.getRemainingTokens()));
+            return ResponseEntity.ok()
+                    .headers(headers)
+                    .body(new Data("infos"));
+        }
+
+        long delaiEnSeconde = probe.getNanosToWaitForRefill() / 1_000_000_000;
+        headers.add("X-Rate-Limit-Retry-After-Seconds",String.valueOf(delaiEnSeconde));
+        return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS)
+                .headers(headers)
+                .build();
+    }
 }
