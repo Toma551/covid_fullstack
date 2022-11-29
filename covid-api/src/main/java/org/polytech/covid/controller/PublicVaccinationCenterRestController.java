@@ -32,6 +32,7 @@ public class PublicVaccinationCenterRestController {
     final String remainning = "X-Rate-Limit-Remaining";
     final String retryAfter = "X-Rate-Limit-Retry-After-Seconds";
     
+    
     /* 
     private static final List<VaccinationCenter> CENTERS = Arrays.asList(
         new VaccinationCenter(1,"test","addr","54","nancy",null),

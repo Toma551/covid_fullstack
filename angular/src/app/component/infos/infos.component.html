@@ -1,14 +1,11 @@
 <table>
-    <tr>
+    <!-- <tr>
       <td>
         <button mat-raised-button color="primary" (click)="info()">Infos</button>
       </td>
-    </tr>
+    </tr> -->
     <tr>
-      <td>
-        {{word}}
-      </td>
-      <td>
+      <td *ngIf="infos">
         {{infos}}
       </td>
     </tr>

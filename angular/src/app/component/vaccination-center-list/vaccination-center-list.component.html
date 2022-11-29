@@ -5,7 +5,16 @@
     Chercher
   </button>
 </div>
-
+<table>
+<tr>
+  <td>
+    {{word}}
+  </td>
+  <td>
+    {{infos}}
+  </td>
+</tr>
+</table>
 <ul>
     <li *ngFor="let aCenter of centers">
         <button [ngClass]="selected==aCenter ? 'selected' : ''" [ngStyle]="{'font_weight' : isSpecialCenter(aCenter) ? 'bold' : 'normal'} " (click)="selectCenter(aCenter)">
