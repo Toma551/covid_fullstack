@@ -9,6 +9,7 @@ import { VaccinationCenterComponent } from './component/vaccination-center/vacci
 import { VaccinationCenterListComponent } from './component/vaccination-center-list/vaccination-center-list.component';
 import { AppointmentComponent } from './component/appointment/appointment.component';
 import { LoginComponent } from './component/login/login.component';
+import { WaitingComponent } from './waiting/waiting.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { LoginComponent } from './component/login/login.component';
     VaccinationCenterComponent,
     VaccinationCenterListComponent,
     AppointmentComponent,
-    LoginComponent
+    LoginComponent,
+    WaitingComponent
   ],
   imports: [
     BrowserModule,

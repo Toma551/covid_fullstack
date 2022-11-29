@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { VaccinationCenter } from '../vaccination-center/vaccination-center';
 import { VaccinationService } from '../../service/vaccination.service';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vaccination-center-list',
@@ -15,11 +17,16 @@ export class VaccinationCenterListComponent implements OnInit {
 
   search_entry!: String;
 
-  constructor(private service: VaccinationService) { }
+  word = '';
+  infos = '';
+  constructor(
+              private service: VaccinationService,
+              private readonly http: HttpClient,
+              private readonly router: Router
+            ) {}
 
   ngOnInit(): void {
     this.service.getAllVaccinationCenter().subscribe(resultCenters=>{
-      //console.log(resultCenters);
       this.centers = resultCenters;
     });
   }
@@ -49,10 +56,4 @@ export class VaccinationCenterListComponent implements OnInit {
     });
   }
 
-  /*
-  onChangedName(center: VaccinationCenter){
-    delete this.selected;
-    this.centers.splice(this.centers.indexOf(center,1))
-  }
-  */
 }
