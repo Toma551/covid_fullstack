@@ -1,6 +1,6 @@
-<div>
+<div class = recherche>
   <label for="city">Recherche par ville : </label>
-  <input id="city" [(ngModel)]="search_entry" />
+  <br><input id="city" [(ngModel)]="search_entry" placeholder="Ville" />
   <button (click)="searchCenterByCity(search_entry)">
     Chercher
   </button>

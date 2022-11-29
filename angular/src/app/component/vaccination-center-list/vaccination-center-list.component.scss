@@ -1,0 +1,53 @@
+.recherche{
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width:fit-content;
+    border: 1px solid rgba(0, 0, 0, 0.425);
+}
+
+.recherche label{
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    display: inline-block;
+    text-align: center;
+}
+
+.recherche input{
+    font-size: 18px;
+    text-align:left;
+    width: 200px;
+    height: 40px;
+    //padding: 12px 20px;
+    //margin: 8px 8px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    border: 3px solid rgba(0, 0, 0, 0.425);
+    transition: all 0.5s;
+    border-radius: 4px;
+    padding: 0px 10px;
+}
+
+.recherche button {
+    
+    background-color:rgb(209, 17, 17) ;
+    margin-left: 10px;
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #eeeeee;
+    font-size: 18px;
+    padding: 9px;
+    width: fit-content;
+    transition: all 0.3s;
+    cursor: pointer;
+    
+}
+
+.recherche button:hover {
+    background-color:#000000a4 ;
+}
+
+.recherche button:hover span {
+    padding-right: 25px;
+}
