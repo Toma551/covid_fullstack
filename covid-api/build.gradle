@@ -21,7 +21,8 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation "org.springframework.boot:spring-boot-starter-security"
 	implementation "io.micrometer:micrometer-registry-prometheus:1.9.3"
-  implementation "org.springframework.boot:spring-boot-starter-actuator"
+  	implementation "org.springframework.boot:spring-boot-starter-actuator"
+	implementation group: 'com.github.vladimir-bukhtoyarov', name: 'bucket4j-core', version: '7.6.0'
 }
 
 // tasks.named('test') {

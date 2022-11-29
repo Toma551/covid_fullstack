@@ -6,6 +6,10 @@
   </button>
 </div>
 
+<div *ngIf="infos">
+  {{infos}}
+</div>
+
 <ul>
     <li *ngFor="let aCenter of centers">
         <button [ngClass]="selected==aCenter ? 'selected' : ''" [ngStyle]="{'font_weight' : isSpecialCenter(aCenter) ? 'bold' : 'normal'} " (click)="selectCenter(aCenter)">
