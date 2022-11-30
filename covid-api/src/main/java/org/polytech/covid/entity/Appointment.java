@@ -21,6 +21,12 @@ public class Appointment {
 
     private String date;
 
+    public Appointment(Integer id_appointment, Patient patient, VaccinationCenter center, String date) {
+        this.id_appointment = id_appointment;
+        this.patient = patient;
+        this.center = center;
+        this.date = date;
+    }
 
     public String getDate() {
         return date;

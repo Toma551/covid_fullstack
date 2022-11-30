@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { catchError, map, Observable } from 'rxjs';
 import { VaccinationCenter } from '../component/vaccination-center/vaccination-center';
 import { Router } from '@angular/router';
+import { Appointment } from '../component/appointment/appointment';
 
 @Injectable({
   providedIn: 'root'
@@ -17,26 +18,34 @@ export class VaccinationService {
   constructor(private httpClient: HttpClient, private router: Router) { }
 
   getAllVaccinationCenter(): Observable<VaccinationCenter[]>{
-    return this.httpClient.get<VaccinationCenter[]>("api/public/centers",{observe: 'response'}).pipe(
-      map((resp)=>{
-        if(!!resp.body){
-          return resp.body
-        }
-        return []
-      }),
-      catchError((err) => {
-        console.log(err.status)
-        const temps =  err.headers.get('x-rate-limit-retry-after-seconds')
-        this.router.navigate(['waiting']);
-        return []
-      })
+    return this.httpClient.get<VaccinationCenter[]>("api/public/centers",{observe: 'response'})
+      .pipe(
+        map((resp)=>{
+          if(!!resp.body){
+            return resp.body
+          }
+          return []
+        }),
+        catchError((err) => {
+          console.log(err.status)
+          const temps =  err.headers.get('x-rate-limit-retry-after-seconds')
+          this.router.navigate(['waiting']);
+          return []
+        })
     );
   }
-  /*
-  createAppointment(appointment: Appointment): Observable<Appointment>{
-    return this.httpClient.post("api/public/booking", appointment);
+
+  postAppointment(appointment: Appointment): Observable<Appointment>{
+    return this.httpClient.post<Appointment>("api/public/booking", {
+      params: {
+        "id_appointment": appointment.id_appointment,
+        "date": appointment.date,
+        "id_vaccination_center": appointment.id_vaccination_center,
+        "id_patient": appointment.id_appointment
+      }
+    });
   }
-  */
+
   getVaccinationCenterById(id_vaccination_center:number): Observable<VaccinationCenter>{
     return this.httpClient.get<VaccinationCenter>("api/public/center",{
       params: {
