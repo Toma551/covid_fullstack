@@ -22,9 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class PublicVaccinationCenterRestController {
     
     //rajoute 10 tokens toutes les minutes
-    Refill refill = Refill.intervally(5, Duration.ofMinutes(1));
+    Refill refill = Refill.intervally(10, Duration.ofSeconds(20));
     //capacité max de 10 token
-    Bandwidth limit = Bandwidth.classic(5, refill);
+    Bandwidth limit = Bandwidth.classic(10, refill);
     Bucket bucket = Bucket.builder().addLimit(limit).build();
 
     final String remaining = "X-Rate-Limit-Remaining";
@@ -60,7 +60,7 @@ public class PublicVaccinationCenterRestController {
         ConsumptionProbe probe = bucket.tryConsumeAndReturnRemaining(1);
 
         if(probe.isConsumed()) {
-            headers.add("X-Rate-Limit-Remaining", Long.toString(probe.getRemainingTokens()+1));
+            headers.add("X-Rate-Limit-Remaining", Long.toString(probe.getRemainingTokens()));
             return ResponseEntity.ok()
                     .headers(headers)
                     .body(new Data("infos"));

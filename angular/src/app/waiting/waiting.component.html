@@ -1,3 +1,14 @@
-<div *ngIf="infos">
-  {{infos}}
+<div class = "avertissement">
+  <p>OOPS ! 😱😱</p>
 </div>
+
+<div class = "texte" *ngIf= "duree ! null">
+  Vous avez effectué un nombre trop important de requêtes.
+  <br>Veuillez réessayer dans {{duree}} secondes.
+</div>
+
+<div *ngIf= "tokens ! null">
+  {{tokens}} tokens restants
+</div>
+
+<!-- *ngIf="duree" -->

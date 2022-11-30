@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -8,11 +9,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = '💉💉Vaccination COVID💉💉';
 
+
+  ngOnInit(): void {
+    this.bucket()
+  }
   word = '';
-  infos = '';
+  tokens = '';
+  duree = '';
   constructor(
               private readonly http: HttpClient,
               private readonly router: Router
@@ -23,12 +29,12 @@ export class AppComponent {
       console.log(resp);
       console.log(resp.headers.keys());
       const nbToken =  resp.headers.get('X-Rate-Limit-Remaining')
-      this.infos = `${nbToken} tokens restant`
+      this.tokens = `${nbToken} tokens restant`
     },
     error:  (err) => {
       console.log(err.status)
       const temps =  err.headers.get('x-rate-limit-retry-after-seconds')
-      this.infos = `Ressayer après ${temps} secondes`;
+      this.duree = `Ressayer après ${temps} secondes`;
       this.router.navigate(['waiting']);
     }
   });
