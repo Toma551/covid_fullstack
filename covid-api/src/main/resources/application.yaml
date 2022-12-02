@@ -5,9 +5,9 @@ logging:
         security: DEBUG
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/covid-db
-    username: postgres
-    password: password
+    url: ${POSTGRES_DB} #jdbc:postgresql://localhost:5432/covid-db
+    username: ${POSTGRES_USER} #postgres
+    password: ${POSTGRES_PASSWORD} #password
   jpa:
       database-platform: org.hibernate.dialect.PostgreSQLDialect
       open-in-view: false
