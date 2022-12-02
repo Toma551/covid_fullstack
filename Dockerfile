@@ -7,6 +7,4 @@ FROM openjdk:8-jre-slim
 
 RUN mkdir /app
 
-COPY --from=build /home/gradle/src/build/libs/*.jar /app/spring-boot-application.jar
-
-ENTRYPOINT ["java","-jar","/usr/src/app/target/covid-api.jar"]
+ENTRYPOINT ["java","-jar","/home/gradle/src/covid-api/build/libs/covid-api.jar"]
