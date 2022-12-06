@@ -6,3 +6,4 @@ ENTRYPOINT ["./gradlew","build"]
 FROM openjdk:8-jre-slim
 
 ENTRYPOINT ["java","-jar","/home/gradle/src/covid-api/build/libs/covid-api.jar"]
+
