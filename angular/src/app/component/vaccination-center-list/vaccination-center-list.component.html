@@ -12,7 +12,7 @@
 <ul>
     <li *ngFor="let aCenter of centers">
       {{aCenter.name}}
-        <button [ngClass]="selected==aCenter ? 'selected' : ''" [ngStyle]="{'font_weight' : isSpecialCenter(aCenter) ? 'bold' : 'normal'} " (click)="selectCenter(aCenter)">
+        <button [ngClass]="selected==aCenter ? 'selected' : 'not-selected'" [ngStyle]="{'font_weight' : isSpecialCenter(aCenter) ? 'bold' : 'normal'} " (click)="selectCenter(aCenter)">
           ▼
         </button>  
     </li>
