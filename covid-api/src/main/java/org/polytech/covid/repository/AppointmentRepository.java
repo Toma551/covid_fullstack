@@ -7,5 +7,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 @Repository
 public interface AppointmentRepository extends JpaRepository<Appointment,Integer>{
-    public List<Appointment> findAllByDateIgnoreCaseLike(String date);
 }

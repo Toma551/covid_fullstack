@@ -1,6 +1,7 @@
 package org.polytech.covid.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.polytech.covid.entity.Appointment;
 import org.polytech.covid.entity.Patient;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PublicAppointmentRestController {
     @Autowired
     private AppointmentRepository appointmentRepository;
+    private PatientRepository patientRepository;
     
     // @GetMapping(path = "api/admin/appointment")
     // public List<Appointment> getAppointment(
@@ -29,7 +31,8 @@ public class PublicAppointmentRestController {
             @RequestParam("date") String date,
             @RequestParam("id_vaccination_center") Integer id_vaccination_center,
             @RequestParam("id_patient") Integer id_patient) {
-                Patient patient = new PatientRepository.findById(id_patient);
+                Patient patient = new Patient();
+                patient = patientRepository.findById(id_patient).get();
                 Appointment appointment = new Appointment(id_appointment,date,id_vaccination_center,patient);
                 appointmentRepository.save(appointment);
             }
