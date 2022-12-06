@@ -5,3 +5,13 @@
     border: 1px solid rgba(0, 0, 0, 0.425);
     text-align: center;
 }
+
+.tokens {
+    margin-left: auto;
+    margin-right: auto;
+    position: fixed;
+    left: 5px;
+    bottom: 5px;
+    width: fit-content;
+    border: 1px solid rgba(0, 0, 0, 0.425);
+}

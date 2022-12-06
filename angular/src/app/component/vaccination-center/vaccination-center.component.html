@@ -5,16 +5,16 @@
     <!--<div>Ouvert depuis le {{center.openingDate | date:'dd/MM/Y'}}</div>-->
 </div>
 
-<div *ngIf="URL && center">
-  <button>
+<div class = "boutons" *ngIf="URL && center">
+  <button class="rdv">
     Prendre rendez-vous dans ce centre
   </button>
+
   <br>
-  <button routerLink="/centers">
+  <button class = "retour" routerLink="/centers">
     Retour
   </button>
 </div>
-
 <!--
 <div>
     <button (click)="clearName()">Clear Name</button>

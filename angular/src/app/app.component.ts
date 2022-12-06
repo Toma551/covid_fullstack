@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
       console.log(resp);
       console.log(resp.headers.keys());
       const nbToken =  resp.headers.get('X-Rate-Limit-Remaining')
-      this.tokens = `${nbToken} tokens restant`
+      this.tokens = `${nbToken} tokens restants`
     },
     error:  (err) => {
       console.log(err.status)
