@@ -1,6 +1,8 @@
 package org.polytech.covid.repository;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.polytech.covid.entity.VaccinationCenter;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,6 +12,8 @@ import org.springframework.data.jpa.repository.Query;
 @Repository
 public interface VaccinationCenterRepository extends JpaRepository<VaccinationCenter,Integer>{
     public List<VaccinationCenter> findAllByCityIgnoreCaseLike(String city);
+
+    public Optional<VaccinationCenter> findById(Integer id);
 
     @Query("from VaccinationCenter")
     public List<VaccinationCenter> findAllCenters();

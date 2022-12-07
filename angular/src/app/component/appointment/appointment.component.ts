@@ -12,7 +12,7 @@ import { Appointment } from './appointment';
 export class AppointmentComponent implements OnInit {
 
   center!: VaccinationCenter;
-  appointment: Appointment = {id_appointment:1, date: new Date('2022-09-12'), id_vaccination_center: 1, id_patient:1};
+  appointment: Appointment = {id_appointment:2, date: new Date('2022-09-12'), id_vaccination_center: 1, id_patient:1};
 
   constructor(private route: ActivatedRoute, private service: VaccinationService) { }
 
