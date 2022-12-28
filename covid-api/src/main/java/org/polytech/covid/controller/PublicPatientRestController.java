@@ -12,9 +12,13 @@ public class PublicPatientRestController {
     @Autowired
     private PatientRepository patientRepository;
 
-    @GetMapping(path = "api/admin/patient")
-    public Patient getPatient(
-            @RequestParam("id_patient") Integer id_patient) {
-                return patientRepository.findById(id_patient).orElse(null);
-            }
+    // @GetMapping(path = "api/admin/patient")
+    // public Patient getPatient(
+    //         @RequestParam("id_patient") Integer id_patient) {
+    //             return patientRepository.findById(id_patient).orElse(null);
+    //         }
+
+    public Patient getPatientbis(Integer id) {
+        return patientRepository.findById(id).orElse(null);
+    }
 }
