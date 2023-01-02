@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { catchError, map, Observable } from 'rxjs';
 import { VaccinationCenter } from '../component/vaccination-center/vaccination-center';
 import { Router } from '@angular/router';
-import { Appointment } from '../component/appointment/appointment';
 
 @Injectable({
   providedIn: 'root'
@@ -35,21 +34,6 @@ export class VaccinationService {
     );
   }
 
-  postAppointment(appointment: Appointment): Observable<Appointment>{
-    const headers= new HttpHeaders()
-      .set('content-type', 'application/json')
-      .set('Access-Control-Allow-Origin', '*');
-    return this.httpClient.post<Appointment>("api/public/booking", {
-      params: {
-        "id_appointment": appointment.id_appointment,
-        "date": appointment.date,
-        "id_vaccination_center": appointment.id_vaccination_center,
-        "id_patient": appointment.id_appointment
-      }
-    },
-    {'headers': headers}
-    );
-  }
 
   getVaccinationCenterById(id_vaccination_center:number): Observable<VaccinationCenter>{
     return this.httpClient.get<VaccinationCenter>("api/public/center",{

@@ -43,7 +43,7 @@ public class PublicAppointmentRestController {
         return patientRepository.findById(ID).get();
     }
 
-    @PostMapping(path = "api/public/booking")
+    @GetMapping(path = "api/public/booking")
     public ResponseEntity<Appointment> postAppointment(@RequestParam Map<String, String> requestParams) {
                 Integer id_patient = Integer.parseInt(requestParams.get("id_patient"));
                 Integer id_vaccination_center= Integer.parseInt(requestParams.get("id_vaccination_center"));
