@@ -2,8 +2,8 @@
 
 <input type="datetime-local" (change)="setDateOnChange($event)" min="2023-01-01T00:00" max="2023-12-31T00:00">
 
-<div class = addAppointment>
-  <button (click)="createAppointment(this.appointment)">
+<div>
+  <button class = "rdv" (click)="createAppointment(this.appointment)">
     Prendre RDV
   </button>
 </div>

@@ -5,9 +5,10 @@
     <!--<div>Ouvert depuis le {{center.openingDate | date:'dd/MM/Y'}}</div>-->
 </div>
 
-<div *ngIf="URL && center">
+<div class = "boutons" *ngIf="URL && center">
   <app-appointment></app-appointment>
-  <button routerLink="/centers">
+  <br>
+  <button class = "retour" routerLink="/centers">
     Retour
   </button>
 </div>
