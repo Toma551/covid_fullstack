@@ -28,13 +28,13 @@ export class AppointmentService {
   }
 */
   postAppointment(newAppointment: Appointment) {
-    return this.httpClient.get<Appointment>('api/public/test',
+    return this.httpClient.get<Appointment>('api/public/booking',
     {params:
       {
         "id_patient": newAppointment.id_patient,
         "id_vaccination_center": newAppointment.id_vaccination_center,
         "date": newAppointment.date,
-        "id_appointment": newAppointment.id_appointment
+        //"id_appointment": newAppointment.id_appointment
       }
      })
 }
