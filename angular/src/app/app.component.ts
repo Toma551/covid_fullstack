@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from './service/login.service';
 
 
 @Component({
@@ -21,8 +22,10 @@ export class AppComponent implements OnInit {
   duree = '';
   constructor(
               private readonly http: HttpClient,
-              private readonly router: Router
+              private readonly router: Router,
+              public readonly loginService: LoginService,
             ) {}
+
   bucket() {
     this.http.get<any>('api/infos', {observe: 'response'}).subscribe({
       next: (resp) => {

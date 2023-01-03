@@ -10,3 +10,9 @@
 <div *ngIf="tokens ! null">
   {{tokens}}
 </div>
+
+<div *ngIf="loginService.authHasBasic()">
+  <button (click)="loginService.logout()">
+    Déconnexion
+  </button>
+</div>
