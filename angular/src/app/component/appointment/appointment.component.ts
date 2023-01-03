@@ -24,9 +24,10 @@ export class AppointmentComponent implements OnInit {
 
   ngOnInit(): void {
     const id_vaccination_center = Number(this.route.snapshot.paramMap.get('id_vaccination_center'));
-    const id_patient = Number(this.httpClient.get<VaccinationCenter>("api/user",{params: {"login": this.loginService.getUtilisateur()}}));
+    console.log(this.loginService.getUtilisateur());
+    const id_patient = this.httpClient.get<number>("api/user",{params: {"login": this.loginService.getUtilisateur()}}).subscribe(id_patient=>{this.appointment.id_patient = id_patient;});
     console.log(id_patient);
-    this.appointment.id_patient = id_patient;
+    //this.appointment.id_patient = id_patient;
     this.appointment.id_vaccination_center = id_vaccination_center;
     // this.vaccinationService.getVaccinationCenterById(id_vaccination_center).subscribe(resultCenter=>{
     //   this.center = resultCenter;

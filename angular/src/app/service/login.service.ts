@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { map, Observable, ReplaySubject, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Doctor } from '../utilisateur';
 
 @Injectable({
   providedIn: 'root'

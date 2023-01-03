@@ -21,7 +21,9 @@ public class PublicDoctorRestController {
             }
 
     @GetMapping(path = "api/user")
-    public Doctor user(@RequestParam("login") String login) {
-        return doctorRepository.findByLogin(login+"%").orElse(null);
+    public Integer user(@RequestParam("login") String login) {
+        Doctor doctor = new Doctor();
+        doctor = doctorRepository.findByLogin(login+"%").orElse(null);
+        return doctor.getId_doctor();
     }
 }
