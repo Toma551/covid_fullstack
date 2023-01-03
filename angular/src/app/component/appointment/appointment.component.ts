@@ -6,6 +6,7 @@ import { Appointment } from './appointment';
 import { AppointmentService } from 'src/app/service/appointment.service';
 import {formatDate} from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { LoginService } from 'src/app/service/login.service';
 
 
 @Component({
@@ -19,14 +20,17 @@ export class AppointmentComponent implements OnInit {
   center!: VaccinationCenter;
   appointment: Appointment = {id_appointment:2, date: "12/09/2022", id_vaccination_center: 1, id_patient:1};
 
-  constructor(private route: ActivatedRoute, private vaccinationService: VaccinationService, private appointmentService: AppointmentService) { }
+  constructor(private route: ActivatedRoute, private httpClient: HttpClient, private loginService: LoginService, private appointmentService: AppointmentService) { }
 
   ngOnInit(): void {
     const id_vaccination_center = Number(this.route.snapshot.paramMap.get('id_vaccination_center'));
+    const id_patient = Number(this.httpClient.get<VaccinationCenter>("api/user",{params: {"login": this.loginService.getUtilisateur()}}));
+    console.log(id_patient);
+    this.appointment.id_patient = id_patient;
     this.appointment.id_vaccination_center = id_vaccination_center;
-    this.vaccinationService.getVaccinationCenterById(id_vaccination_center).subscribe(resultCenter=>{
-      this.center = resultCenter;
-    });
+    // this.vaccinationService.getVaccinationCenterById(id_vaccination_center).subscribe(resultCenter=>{
+    //   this.center = resultCenter;
+    // });
   }
 
   setDateOnChange(event: any) {

@@ -18,6 +18,7 @@ export class LoginService {
   constructor(private httpClient: HttpClient, private router: Router) {
   }
 
+
   connect(username: string, password: string): Observable<any> {
     let token = this.createToken(username, password);
     let options = {
@@ -62,7 +63,20 @@ export class LoginService {
     this.router.navigateByUrl("/login").then(console.log).catch(console.error)
   }
 
-  getUtilisateur(): Observable<Doctor> {
-    return this.httpClient.get<Doctor>('/api/user', {});
+  // getUtilisateur(): Observable<Doctor> {
+  //   console.log(this.username);
+  //   if(this.username)
+  //     return this.httpClient.get<Doctor>('/api/user', {params: {
+  //       "login": this.username
+  //     }});
+  //   else
+  //     return null as any;
+  // }
+
+  getUtilisateur() {
+    if(this.username)
+      return this.username;
+    else
+      return null as any;
   }
 }

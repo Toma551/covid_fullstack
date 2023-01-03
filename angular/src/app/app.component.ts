@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from './service/login.service';
+import { Doctor } from './utilisateur';
 
 
 @Component({
@@ -15,16 +16,18 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.bucket()
+    this.bucket();
   }
   word = '';
   tokens = '';
   duree = '';
+  utilisateur?: Doctor;
   constructor(
               private readonly http: HttpClient,
               private readonly router: Router,
               public readonly loginService: LoginService,
             ) {}
+
 
   bucket() {
     this.http.get<any>('api/infos', {observe: 'response'}).subscribe({
