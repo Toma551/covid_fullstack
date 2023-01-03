@@ -14,6 +14,7 @@ public class PublicLoginController {
     public PublicLoginController(MeterRegistry meterRegistry) {
         this.meterRegistry = meterRegistry;
     }
+    
     @GetMapping(path = "api/login")
     public ResponseEntity<Void>  sendOK() {
         meterRegistry.counter("nbLooged").increment();

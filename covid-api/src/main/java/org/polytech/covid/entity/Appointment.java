@@ -2,12 +2,14 @@ package org.polytech.covid.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class Appointment {
+    @GeneratedValue
     @Id
     private Integer id_appointment;
 
@@ -21,6 +23,21 @@ public class Appointment {
 
     private String date;
 
+    public Appointment() {
+    }
+
+    public Appointment(Patient patient, VaccinationCenter center, String date) {
+        this.patient = patient;
+        this.center = center;
+        this.date = date;
+    }
+
+    public Appointment(Integer id_appointment, Patient patient, VaccinationCenter center, String date) {
+        this.id_appointment = id_appointment;
+        this.patient = patient;
+        this.center = center;
+        this.date = date;
+    }
 
     public String getDate() {
         return date;

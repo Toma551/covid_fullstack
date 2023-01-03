@@ -14,9 +14,9 @@
       {{aCenter.name}}
         <button [ngClass]="selected==aCenter ? 'selected' : ''" [ngStyle]="{'font_weight' : isSpecialCenter(aCenter) ? 'bold' : 'normal'} " (click)="selectCenter(aCenter)">
           ▼
-        </button>  
+        </button>
     </li>
 </ul>
 </div>
 
-<app-vaccination-center  [center]="selected" (deleted)="onDeleted($event)" ></app-vaccination-center>
+<app-vaccination-center [center]="selected"  (deleted)="onDeleted($event)" ></app-vaccination-center>

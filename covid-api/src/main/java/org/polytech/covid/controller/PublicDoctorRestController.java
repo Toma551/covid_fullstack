@@ -19,4 +19,9 @@ public class PublicDoctorRestController {
             @RequestParam("name") String name) {
                 return doctorRepository.findAllByNameIgnoreCaseLike(name+"%");
             }
+
+    @GetMapping(path = "api/user")
+    public Doctor user(@RequestParam("login") String login) {
+        return doctorRepository.findByLogin(login+"%").orElse(null);
+    }
 }
