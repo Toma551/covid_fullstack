@@ -14,7 +14,6 @@ import { Doctor } from './utilisateur';
 export class AppComponent implements OnInit {
   title = '💉💉Vaccination COVID💉💉';
 
-
   ngOnInit(): void {
     this.bucket();
   }

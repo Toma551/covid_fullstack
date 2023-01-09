@@ -1,0 +1,15 @@
+<div class= "liste">
+<ul class="detail">
+    <li *ngFor="let anAppointment of appointments">
+        {{anAppointment.date}}
+        {{anAppointment.id_vaccination_center}}
+        {{anAppointment.id_patient}}
+    </li>
+</ul>
+</div>
+
+<div class= "boutons">
+  <button class = "retour" routerLink="/centers">
+    Retour
+  </button>
+</div>

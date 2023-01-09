@@ -2,6 +2,69 @@
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
-    border: 1px solid rgba(0, 0, 0, 0.425);
     text-align: center;
+}
+
+.user{
+  font-size: 30px;
+  text-align: left;
+}
+
+.logout{
+  //display: inline-block;
+  background-color:rgb(209, 17, 17) ;
+  border-radius: 10px;
+  border: 4px double #cccccc;
+  color: #eeeeee;
+  text-align: center;
+  font-size: 20px;
+  //padding: 20px;
+  width: 230px;
+  transition: all 0.3s;
+  cursor: pointer;
+  margin: 18px;
+  margin-right: 230px;
+  float: right;
+  height: 70px;
+}
+
+.logout:hover {
+  background-color:#000000a4 ;
+}
+.logout:hover span {
+  padding-right: 25px;
+}
+
+.myRDV {
+  //display: inline-block;
+  background-color:rgb(0, 131, 28) ;
+  border-radius: 10px;
+  border: 4px double #cccccc;
+  color: #eeeeee;
+  text-align: center;
+  font-size: 20px;
+  //padding: 20px;
+  height: 70px;
+  width: 230px;
+  transition: all 0.3s;
+  cursor: pointer;
+  //margin: 5px;
+  float: left;
+  margin-left: 230px;
+}
+
+.myRDV:hover {
+  background-color:#000000a4 ;
+}
+.myRDV:hover span {
+  padding-right: 25px;
+}
+
+.boutons {
+  margin-left: 0px;
+  margin-right: auto;
+  position: fixed;
+  top: 50px;
+  width: 100%;
+  height: fit-content;
 }

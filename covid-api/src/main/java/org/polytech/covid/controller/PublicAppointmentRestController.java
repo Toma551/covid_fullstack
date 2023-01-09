@@ -30,6 +30,7 @@ public class PublicAppointmentRestController {
     public List<Appointment> getAllAppointments(){
         return appointmentRepository.findAll();
     }
+
     @GetMapping(path = "api/public/patients")
     public List<Patient> getAllPatients(){
         return patientRepository.findAllPatients();
@@ -56,32 +57,5 @@ public class PublicAppointmentRestController {
                 appointmentRepository.save(appointment);
                 return new ResponseEntity<Appointment>(appointment, HttpStatus.CREATED);
             }
-
-    // @GetMapping(path = "api/public/test")
-    // public String Ajout(@RequestParam Map<String, String> requestParams) {
-    //             System.out.println("GROS ZEUB SA MERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-    //             Integer id_patient = Integer.parseInt(requestParams.get("id_patient"));
-    //             Integer id_vaccination_center= Integer.parseInt(requestParams.get("id_vaccination_center"));
-    //             String date= requestParams.get("date");
-    //             return "Parameters are : " + "id patient : " + Integer.toString(id_patient) + " id center : " + Integer.toString(id_vaccination_center) + " date : " + date;
-    //         }
-    // @GetMapping(path = "api/public/test")
-    // public ResponseEntity<Appointment> Ajout(@RequestParam Map<String, String> requestParams) {
-    //     Integer id_patient = Integer.parseInt(requestParams.get("id_patient"));
-    //     System.out.println("ID PATIENT : " + Integer.toString(id_patient));
-    //     Integer id_vaccination_center= Integer.parseInt(requestParams.get("id_vaccination_center"));
-    //     System.out.println("ID CENTRE : " + Integer.toString(id_vaccination_center));
-    //     String date= requestParams.get("date");
-    //     System.out.println("DATE : " + date);
-    //     Integer id_appointment = Integer.parseInt(requestParams.get("id_appointment"));
-    //     System.out.println("ID RDV : " + Integer.toString(id_appointment));
-    //     Patient patient = new Patient();
-    //     patient = patientRepository.findById(id_patient).get();
-    //     VaccinationCenter vaccination_center = new VaccinationCenter();
-    //     vaccination_center = vaccinationCenterRepository.findById(id_vaccination_center).get();
-    //     Appointment appointment = new Appointment(id_appointment,patient,vaccination_center,date);
-    //     appointmentRepository.save(appointment);
-    //     return new ResponseEntity<Appointment>(appointment, HttpStatus.CREATED);
-    //         }
     
 }

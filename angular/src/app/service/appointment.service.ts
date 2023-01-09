@@ -10,23 +10,33 @@ import { Appointment } from '../component/appointment/appointment';
 export class AppointmentService {
 
   constructor(private httpClient: HttpClient, private router: Router) { }
-/*
-  postAppointment(appointment: Appointment): Observable<Appointment>{
-    const headers= new HttpHeaders()
-      .set('content-type', 'application/json')
-      .set('Access-Control-Allow-Origin', '*');
-    return this.httpClient.post<Appointment>("api/public/test", {
-      params: {
-        "id_patient": appointment.id_patient,
-        "id_vaccination_center": appointment.id_vaccination_center,
-        "date": appointment.date,
-        "id_appointment": appointment.id_appointment
-      }
-    },
-    {'headers': headers}
+
+  getAllAppointments(): Observable<Appointment[]>{
+    return this.httpClient.get<Appointment[]>("api/public/appointments",{observe: 'response'})
+      .pipe(
+        map((resp)=>{
+          if(!!resp.body){
+            return resp.body
+          }
+          return []
+        }),
+        catchError((err) => {
+          console.log(err.status)
+          const temps =  err.headers.get('x-rate-limit-retry-after-seconds')
+          this.router.navigate(['waiting']);
+          return []
+        })
     );
   }
-*/
+
+  getAppointmentsByPatient(id_patient:number): Observable<Appointment[]>{
+    return this.httpClient.get<Appointment[]>("api/public/appointments",{
+      params: {
+        "id_patient": id_patient
+      }
+    });
+  }
+
   postAppointment(newAppointment: Appointment) {
     return this.httpClient.get<Appointment>('api/public/booking',
     {params:
@@ -34,7 +44,6 @@ export class AppointmentService {
         "id_patient": newAppointment.id_patient,
         "id_vaccination_center": newAppointment.id_vaccination_center,
         "date": newAppointment.date,
-        //"id_appointment": newAppointment.id_appointment
       }
      })
 }

@@ -3,7 +3,6 @@ import { VaccinationCenter } from '../vaccination-center/vaccination-center';
 import { VaccinationService } from '../../service/vaccination.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { NONE_TYPE } from '@angular/compiler';
 
 @Component({
   selector: 'app-vaccination-center-list',
@@ -13,7 +12,7 @@ import { NONE_TYPE } from '@angular/compiler';
 export class VaccinationCenterListComponent implements OnInit {
 
   centers!: VaccinationCenter[];
-   
+
 
   selected?: VaccinationCenter;
 
