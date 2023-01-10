@@ -1,11 +1,15 @@
 <div class= "liste">
-<ul class="detail">
-    <li *ngFor="let anAppointment of appointments">
-        {{anAppointment.date}}
-        {{anAppointment.id_vaccination_center}}
-        {{anAppointment.id_patient}}
-    </li>
-</ul>
+  <ul class="detail">
+      <li *ngFor="let anAppointment of appointments">
+          {{anAppointment.date}}
+          <button (click)="selectAppointment(anAppointment)">
+            ▼
+          </button>
+          <button (click)="deleteAppointment(anAppointment)">
+            X
+          </button>
+      </li>
+  </ul>
 </div>
 
 <div class= "boutons">
@@ -13,3 +17,5 @@
     Retour
   </button>
 </div>
+
+<app-vaccination-center  [center]="center"></app-vaccination-center>

@@ -5,6 +5,32 @@
   text-align: left;
 }
 
+.liste {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid rgba(0, 0, 0, 0.425);
+  width: 200px;
+}
+
+.liste li{
+  list-style-position: outside;
+  list-style-type:none;
+
+}
+
+.liste button {
+  text-align: left;
+  background-color:rgba(0, 0, 0, 0.616) ;
+  margin-left: 10px;
+  color: #eeeeee;
+  font-size: 15px;
+  padding: 3px;
+  width: fit-content;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
 .retour{
   //display: inline-block;
   background-color:rgb(209, 17, 17) ;

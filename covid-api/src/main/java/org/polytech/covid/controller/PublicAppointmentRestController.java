@@ -26,9 +26,19 @@ public class PublicAppointmentRestController {
     @Autowired
     private VaccinationCenterRepository vaccinationCenterRepository;
 
-    @GetMapping(path = "api/public/appointments")
+    @GetMapping(path = "api/public/all_appointments")
     public List<Appointment> getAllAppointments(){
         return appointmentRepository.findAll();
+    }
+
+    @GetMapping(path = "api/public/appointments")
+    public List<Appointment> getAppointmentsByPatient(@RequestParam("id_patient") Integer id_patient){
+        return appointmentRepository.findByPatientId(id_patient);
+    }
+
+    @GetMapping(path = "api/public/delete_appointment")
+    public void deleteById(@RequestParam("id_appointment") Integer id_appointment){  
+        appointmentRepository.deleteById(id_appointment);
     }
 
     @GetMapping(path = "api/public/patients")
@@ -37,9 +47,7 @@ public class PublicAppointmentRestController {
     }
 
     @GetMapping(path = "api/public/patient")
-    public Patient getPatient(
-            @RequestParam("id_patient") Integer ID)
-    {
+    public Patient getPatient(@RequestParam("id_patient") Integer ID){
         return patientRepository.findById(ID).get();
     }
 
