@@ -41,6 +41,11 @@ public class PublicAppointmentRestController {
         appointmentRepository.deleteById(id_appointment);
     }
 
+    @GetMapping(path = "api/public/appointment")
+    public Appointment deleteById(@RequestParam("date") String date){  
+        return appointmentRepository.findByDate(date).orElse(null);
+    }
+
     @GetMapping(path = "api/public/patients")
     public List<Patient> getAllPatients(){
         return patientRepository.findAllPatients();

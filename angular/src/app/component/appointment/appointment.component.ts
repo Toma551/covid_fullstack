@@ -1,5 +1,5 @@
 import { Component, OnInit, LOCALE_ID } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { VaccinationCenter } from '../vaccination-center/vaccination-center';
 import { Appointment } from './appointment';
 import { AppointmentService } from 'src/app/service/appointment.service';
@@ -17,9 +17,11 @@ import { LoginService } from 'src/app/service/login.service';
 export class AppointmentComponent implements OnInit {
 
   center!: VaccinationCenter;
-  appointment: Appointment = {id_appointment:2, date: "12/09/2022", id_vaccination_center: 1, id_patient:1};
+  appointment: Appointment = {id_appointment:2, date: "01/01/2000", id_vaccination_center: 1, id_patient:0};
+  temp?: Appointment[];
 
   constructor(private route: ActivatedRoute,
+              private readonly router: Router,
               private httpClient: HttpClient,
               private loginService: LoginService,
               private appointmentService: AppointmentService) {}
@@ -38,9 +40,17 @@ export class AppointmentComponent implements OnInit {
   }
 
   createAppointment(newAppointment: Appointment) {
-    this.appointmentService.postAppointment(newAppointment).subscribe(appointment=>{
-      this.appointment = appointment;
-    });
+    this.appointmentService.postAppointment(newAppointment).subscribe(appointment=>{this.appointment = appointment;});
+    // this.appointmentService.getAppointmentByDate(newAppointment.date).subscribe(appointment => {this.temp = appointment});
+    // console.log(this.temp);
+    // if(this.temp == null) {
+    //   console.log("AJOUT RDV")
+    //   this.appointmentService.postAppointment(newAppointment).subscribe(appointment=>{this.appointment = appointment;});
+    //   this.router.navigate(['waiting']);
+    // }
+    // else
+    //   console.log("RDV EXISTE DEJA")
+
   }
 
 }

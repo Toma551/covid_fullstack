@@ -38,6 +38,14 @@ export class AppointmentService {
     });
   }
 
+  getAppointmentByDate(Date:string): Observable<Appointment[]>{
+    return this.httpClient.get<Appointment[]>("api/public/appointment",{
+      params: {
+        "date": Date
+      }
+    });
+  }
+
   postAppointment(newAppointment: Appointment) {
     return this.httpClient.get<Appointment>('api/public/booking',
     {params:

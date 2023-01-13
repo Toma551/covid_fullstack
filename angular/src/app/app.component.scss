@@ -22,8 +22,8 @@
   width: 230px;
   transition: all 0.3s;
   cursor: pointer;
-  margin: 18px;
-  margin-right: 230px;
+  //margin: 18px;
+  //margin-right: 230px;
   float: right;
   height: 70px;
 }
@@ -50,7 +50,7 @@
   cursor: pointer;
   //margin: 5px;
   float: left;
-  margin-left: 230px;
+  //margin-left: 230px;
 }
 
 .myRDV:hover {
@@ -65,6 +65,6 @@
   margin-right: auto;
   position: fixed;
   top: 50px;
-  width: 100%;
+  width:  fit-content;
   height: fit-content;
 }

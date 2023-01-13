@@ -2,15 +2,13 @@
   margin-left: auto;
   margin-right: auto;
   width: fit-content;
-  text-align: left;
 }
 
 .liste {
-  margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
   border: 1px solid rgba(0, 0, 0, 0.425);
-  width: 200px;
+  width: fit-content;
 }
 
 .liste li{
@@ -58,6 +56,6 @@
   margin-right: auto;
   position: fixed;
   bottom: 50px;
-  width: 100%;
+  width:  fit-content;
   height: fit-content;
 }
