@@ -11,6 +11,7 @@ import { AppointmentComponent } from './component/appointment/appointment.compon
 import { LoginComponent } from './component/login/login.component';
 import { WaitingComponent } from './waiting/waiting.component';
 import { AppointmentListComponent } from './component/appointment-list/appointment-list.component';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AppointmentListComponent } from './component/appointment-list/appointme
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPermissionsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
