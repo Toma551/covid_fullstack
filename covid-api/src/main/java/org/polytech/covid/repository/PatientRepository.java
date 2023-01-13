@@ -14,4 +14,6 @@ public interface PatientRepository extends JpaRepository<Patient,Integer>{
 
     @Query("from Patient")
     public List<Patient> findAllPatients();
+    
+    Optional<Patient> findByLogin(final String email);
 }

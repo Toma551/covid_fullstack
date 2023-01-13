@@ -12,4 +12,6 @@ public interface DoctorRepository extends JpaRepository<Doctor,Integer>{
     public List<Doctor> findAllByNameIgnoreCaseLike(String doctor);
     
     Optional<Doctor> findByLogin(final String email);
+
+    String findRole(final String id);
 }

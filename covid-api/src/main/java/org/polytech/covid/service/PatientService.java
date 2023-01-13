@@ -1,10 +1,9 @@
 package org.polytech.covid.service;
-
 import java.util.List;
 import java.util.Optional;
 
-import org.polytech.covid.entity.Doctor;
-import org.polytech.covid.repository.DoctorRepository;
+import org.polytech.covid.entity.Patient;
+import org.polytech.covid.repository.PatientRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,32 +14,26 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-@Service
-public class DoctorService implements UserDetailsService {
-    private static Logger log = LoggerFactory.getLogger(DoctorService.class);
-    private final DoctorRepository doctorRepository;
+public class PatientService implements UserDetailsService {
+    private static Logger log = LoggerFactory.getLogger(PatientService.class);
+    private final PatientRepository patientRepository;
     
     @Autowired
-    public DoctorService(final DoctorRepository doctorRepository, PasswordEncoder passwordEncoder) {
-        this.doctorRepository = doctorRepository;
+    public PatientService(final PatientRepository patientRepository, PasswordEncoder passwordEncoder) {
+        this.patientRepository = patientRepository;
     }
 
     @Override
     public UserDetails loadUserByUsername(final String login)
             throws UsernameNotFoundException {
-        log.info("recuperation du docteur {}", login);
+        log.info("recuperation du patient {}", login);
     
-        Optional<Doctor> optionalUtilisateur = doctorRepository.findByLogin(login);
+        Optional<Patient> optionalUtilisateur = patientRepository.findByLogin(login);
         if (optionalUtilisateur.isPresent()) {
-            if(doctorRepository.findRole(login)=="doctor"){
-                System.out.println("C'est un docteur ! ");
-            }
-            else System.out.println("c'est la merde");
-            Doctor utilisateur = optionalUtilisateur.get();
+            Patient utilisateur = optionalUtilisateur.get();
             return new User(utilisateur.getLogin(), utilisateur.getPassword(), List.of());
         } else {
             throw new UsernameNotFoundException("L'utilisateur" + login + " n'existe pas");
         }
-
     }
 }
