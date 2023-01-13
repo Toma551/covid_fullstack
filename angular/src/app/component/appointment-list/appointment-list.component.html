@@ -1,4 +1,4 @@
-<div class= "liste">
+<div class= "liste" *ngxPermissionsOnly="'DEVELOPER'">
   <ul class="detail">
       <li *ngFor="let anAppointment of appointments">
           {{anAppointment.date}}

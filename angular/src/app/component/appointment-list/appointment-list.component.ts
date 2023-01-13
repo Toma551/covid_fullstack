@@ -6,6 +6,8 @@ import { AppointmentService } from 'src/app/service/appointment.service';
 import { VaccinationService } from 'src/app/service/vaccination.service';
 import { VaccinationCenter } from '../vaccination-center/vaccination-center';
 import { LoginService } from 'src/app/service/login.service';
+import { NgxPermission } from 'ngx-permissions/lib/model/permission.model';
+import { NgxPermissionsService } from 'ngx-permissions';
 
 @Component({
   selector: 'app-appointment-list',
@@ -27,6 +29,7 @@ export class AppointmentListComponent implements OnInit {
               private vaccinationService: VaccinationService,
               private loginService: LoginService,
               private httpClient: HttpClient,
+              private ngxPermissionsService: NgxPermissionsService
             ) {}
 
   ngOnInit(): void {
@@ -38,7 +41,7 @@ export class AppointmentListComponent implements OnInit {
     this.service.getAppointmentsByPatient(this.id_user).subscribe(resultAppointments=>{this.appointments = resultAppointments;});
       */
     this.service.getAllAppointments().subscribe(resultAppointments=>{this.appointments = resultAppointments;});
-
+    this.ngxPermissionsService.loadPermissions(['DEVELOPER'])
 
   }
 
