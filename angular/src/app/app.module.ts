@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -11,7 +11,19 @@ import { AppointmentComponent } from './component/appointment/appointment.compon
 import { LoginComponent } from './component/login/login.component';
 import { WaitingComponent } from './waiting/waiting.component';
 import { AppointmentListComponent } from './component/appointment-list/appointment-list.component';
-import { NgxPermissionsModule } from 'ngx-permissions';
+import { NgxPermissionsModule, NgxPermissionsService } from 'ngx-permissions';
+import { AdminPageComponent } from './admin-page/admin-page.component';
+import { LoadPermissionService } from './service/load-permission.service';
+import { UtilisateurComponent } from './utilisateur/utilisateur.component';
+
+export function permissionsFactory(loadPermissionService: LoadPermissionService, ngxPermissionsService: NgxPermissionsService){
+  return () => {
+    return loadPermissionService.loadPermissions().then((data) =>{
+      ngxPermissionsService.loadPermissions(data)
+      return true
+    })
+  }
+}
 
 @NgModule({
   declarations: [
@@ -21,7 +33,9 @@ import { NgxPermissionsModule } from 'ngx-permissions';
     AppointmentComponent,
     LoginComponent,
     WaitingComponent,
-    AppointmentListComponent
+    AppointmentListComponent,
+    AdminPageComponent,
+    UtilisateurComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +44,12 @@ import { NgxPermissionsModule } from 'ngx-permissions';
     HttpClientModule,
     NgxPermissionsModule.forRoot()
   ],
-  providers: [],
+  providers: [{
+    provide: APP_INITIALIZER,
+    useFactory: permissionsFactory,
+    deps:[LoadPermissionService, NgxPermissionsService],
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

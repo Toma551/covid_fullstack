@@ -6,14 +6,24 @@ import { LoginComponent } from './component/login/login.component';
 import { AuthGuard } from './guard/auth.guard';
 import { WaitingComponent } from './waiting/waiting.component';
 import { AppointmentListComponent } from './component/appointment-list/appointment-list.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
+import { NgxPermissionsGuard } from 'ngx-permissions';
+import { RoleGuardGuard } from './guard/role-guard.guard';
+import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'waiting', component: WaitingComponent},
-  {path: "centers", component: VaccinationCenterListComponent},//, canActivate: [AuthGuard]},
+  {path: "centers", component: VaccinationCenterListComponent, canActivate: [RoleGuardGuard]},//, canActivate: [AuthGuard]},
   {path: "appointments", component: AppointmentListComponent},
   {path: "centers/detail/:id_vaccination_center", component: VaccinationCenterComponent},//, canActivate: [AuthGuard]},
+  // {path: "admin", component: AdminPageComponent, canActivate: [NgxPermissionsGuard], data:{Permissions:{only: ['DEVELOPER']}}},
+  {path: "admin", component: AdminPageComponent, canActivate: [RoleGuardGuard],
+  data:{
+    expectedRoles: ['Admin']
+  }},
   {path: '', redirectTo: 'centers', pathMatch: 'full'},
+  {path: "utilisateur", component: UtilisateurComponent},
 ];
 
 @NgModule({
