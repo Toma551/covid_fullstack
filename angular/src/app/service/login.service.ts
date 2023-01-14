@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { map, Observable, ReplaySubject, Subject } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { catchError, map, Observable, ReplaySubject, Subject } from 'rxjs';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -77,5 +77,35 @@ export class LoginService {
       return this.username;
     else
       return null as any;
+  }
+
+  // getRole(username : string) :Observable<string>{
+  //   return this.httpClient.get('/api/role',{
+  //     params: {
+  //       "username": username
+  //     }, 
+  //     responseType: 'text'
+
+  //   })
+  // }
+
+
+  getRole(username : string) :Observable<any>{
+    return this.httpClient.get('/api/role',{
+      params: {
+        "username": username
+      }, 
+      observe: 'response',
+      responseType : 'text'
+    })
+    .pipe(
+      map((resp)=>{
+        if(!!resp.body){
+          return resp.body
+        }
+        return ""
+      }),
+      
+  );
   }
 }

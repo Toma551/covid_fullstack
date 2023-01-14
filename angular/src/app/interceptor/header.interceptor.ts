@@ -22,7 +22,7 @@ export class HeaderInterceptor implements HttpInterceptor {
       let headers: any = {
         'x-requested-with': 'XMLHttpRequest',
         'Content-type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json, text'
       }
 
 
