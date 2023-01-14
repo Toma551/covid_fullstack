@@ -10,6 +10,16 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
 import { NgxPermissionsGuard } from 'ngx-permissions';
 import { RoleGuardGuard } from './guard/role-guard.guard';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+const materialModules = [
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatFormFieldModule,
+  MatInputModule
+];
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -27,7 +37,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes),materialModules],
+  exports: [RouterModule,materialModules]
 })
 export class AppRoutingModule { }

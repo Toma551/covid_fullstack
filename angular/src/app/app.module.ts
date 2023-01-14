@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,6 +15,8 @@ import { NgxPermissionsModule, NgxPermissionsService } from 'ngx-permissions';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { LoadPermissionService } from './service/load-permission.service';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 export function permissionsFactory(loadPermissionService: LoadPermissionService, ngxPermissionsService: NgxPermissionsService){
   return () => {
@@ -42,7 +44,8 @@ export function permissionsFactory(loadPermissionService: LoadPermissionService,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgxPermissionsModule.forRoot()
+    NgxPermissionsModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [{
     provide: APP_INITIALIZER,

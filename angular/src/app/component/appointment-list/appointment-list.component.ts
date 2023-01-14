@@ -33,13 +33,13 @@ export class AppointmentListComponent implements OnInit {
             ) {}
 
   ngOnInit(): void {
-    /*
+
     this.httpClient.get<number>("api/user",{
       params: {"login": this.loginService.getUtilisateur()}})
       .subscribe(id_patient=>{this.id_user = id_patient;});
     console.log(this.id_user)
     this.service.getAppointmentsByPatient(this.id_user).subscribe(resultAppointments=>{this.appointments = resultAppointments;});
-      */
+
     this.service.getAllAppointments().subscribe(resultAppointments=>{this.appointments = resultAppointments;});
     this.ngxPermissionsService.loadPermissions(['DEVELOPER'])
 

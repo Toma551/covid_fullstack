@@ -42,8 +42,9 @@ public class PublicAppointmentRestController {
     }
 
     @GetMapping(path = "api/public/appointment")
-    public Appointment deleteById(@RequestParam("date") String date){  
-        return appointmentRepository.findByDate(date).orElse(null);
+    public Appointment deleteById(@RequestParam("date") String date,
+                                  @RequestParam("id_vaccination_center") Integer id_vaccination_center){  
+        return appointmentRepository.findByDateAndCenterId(date,id_vaccination_center).orElse(null);
     }
 
     @GetMapping(path = "api/public/patients")
