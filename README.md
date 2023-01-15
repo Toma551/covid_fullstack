@@ -82,6 +82,8 @@ Par manque de temps et de capacité, il n'a pas été possible de réaliser ces 
 <br/>Cette page est réservée aux utilisateurs ayant comme rôle "Admin" ou "Doctor"
 <br/>Elle affiche la liste des rendez-vous et permet la suppression de ceux-ci.
 
+<!>Le rôle du compte est rappelé à côté du nom sur le bouton du menu déroulant. Un fonctionnement étrange du back peut empêcher la récupération du rôle de l'utilisateur connecté. Dans ce cas, les boutons d'accès correspondant au rôle de l'utilisateur seront cachés <!>
+
 ### Création de compte
 Il était envisagé de créer une page dédiée à la création de comptes :
 - Une page libre d'accès à tous pour la création de compte patient.
