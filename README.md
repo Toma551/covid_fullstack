@@ -56,6 +56,7 @@ La page /détails du centre sélectionné s'ouvre, il faut ensuite sélectionner
 ### Page admin
 Une page admin est disponible et est réservée aux utilisateurs ayant comme rôle "Admin" dans la bdd.
 <br/>Cette page permet de visualiser la liste des docteurs et la liste des patients.
+<br/>Le verrouillage de la page est effectué à l'aide d'un guard implémentant CanActivate.
 <br/>Une amélioration serait de modifier les entités de la manière suivante :
 - Lier un docteur à un centre de vaccination, créer un administrateur de centre qui aurait accès à la liste des docteurs de son centre sur sa page admin. La page admin du docteur contiendrait la liste des rendez-vous de son centre.
 - Créer un compte admin suprême qui aurait la liste de toutes les entités et pourrait les supprimer.
@@ -74,3 +75,16 @@ Il était envisagé de créer une page dédiée à la création de comptes :
 - Un Token Bucket a été mis en place mais uniquement sur les requêtes sur la page /centers
 - Une fois le Bucket vide, une redirection s'effectue sur la page /waiting avec un compte à rebours
 - Une fois le compte à rebours terminé, la redirection s'effectue sur la page précédente.
+- La gestion des Etags n'a pas été effectuée
+
+## Mise en production
+Un DockerFile est présent au sein du projet, dans le dossier du Back.
+Il permet la conteneurisation de la partie Back pour une compilation et un lancement de celui-ci dans un environnement stable.
+
+###Fonctionnement du DockerFile
+On utilise deux environnements différents :
+- openjdk:17-oracle qui sert de compilateur
+- openjdk:17-oracle qui sert de lanceur (dans l'idée seule une jre est nécessaire mais à cause d'un problème de compatibilité nous avons réutilisé une jdk)
+
+Dans le 1er, les fichiers du projet sont copiés puis sont compilés dans un .jar en lançant la commande "gradlew build" qui effectue la compilation du projet gradle.
+Dans le 2nd, le fichier jar est copié et executé.
