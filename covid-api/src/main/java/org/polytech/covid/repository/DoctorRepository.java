@@ -17,6 +17,8 @@ public interface DoctorRepository extends JpaRepository<Doctor,Integer>{
     @Query("from Doctor v where v.login like :login")
     public Optional<Doctor> findByLogin(@Param("login") String login);
 
+    public Optional<Doctor> findById(Integer id);
+
     @Query("from Doctor")
     public List<Doctor> findAllDoctors();
     

@@ -1,6 +1,6 @@
 <div class= "liste">
+    <h3>Liste des docteurs</h3>
 <ul>
-    Liste
     <li *ngFor="let aDoctor of doctors">
       {{aDoctor.name}}
         <button [ngClass]="selected==aDoctor ? 'selected' : 'not-selected'"  (click)="selectDoctor(aDoctor)">
@@ -8,6 +8,20 @@
         </button>  
     </li>
 </ul>
+<app-doctor  [doctor]="selected"  ></app-doctor>
 </div>
 
-<app-doctor  [doctor]="selected"  ></app-doctor>
+<div class= "liste_patients">
+    <h3>Liste des patients</h3>
+    <ul>
+        <li *ngFor="let aPatient of patients">
+          {{aPatient.fullname}} {{aPatient.lastname}}
+            <button [ngClass]="selected_patient==aPatient ? 'selected' : 'not-selected'"  (click)="selectPatient(aPatient)">
+              ▼
+            </button>  
+        </li>
+    </ul>
+    <app-patient  [patient]="selected_patient"  ></app-patient>
+    </div>
+
+

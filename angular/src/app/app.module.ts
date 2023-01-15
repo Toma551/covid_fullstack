@@ -14,6 +14,7 @@ import { AppointmentListComponent } from './component/appointment-list/appointme
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { DoctorComponent } from './component/doctor/doctor.component';
+import { PatientComponent } from './component/patient/patient.component';
 
 
 
@@ -28,7 +29,8 @@ import { DoctorComponent } from './component/doctor/doctor.component';
     AppointmentListComponent,
     AdminPageComponent,
     UtilisateurComponent,
-    DoctorComponent
+    DoctorComponent,
+    PatientComponent
   ],
   imports: [
     BrowserModule,

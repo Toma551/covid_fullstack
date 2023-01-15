@@ -16,9 +16,9 @@ public class PublicDoctorRestController {
     private DoctorRepository doctorRepository;
 
     @GetMapping(path = "api/admin/doctor")
-    public List<Doctor> getDoctor(
-            @RequestParam("name") String name) {
-                return doctorRepository.findAllByNameIgnoreCaseLike(name+"%");
+    public Doctor getDoctor(
+            @RequestParam("id_doctor") Integer id_doctor) {
+                return doctorRepository.findById(id_doctor).orElse(null);
             }
 
     @GetMapping(path = "api/admin/doctors")

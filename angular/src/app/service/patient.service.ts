@@ -2,17 +2,17 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, map, Observable } from 'rxjs';
-import { Doctor } from '../admin-page/doctor';
+import { Patient } from '../admin-page/patient';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DoctorService {
+export class PatientService {
 
   constructor(private httpClient: HttpClient, private router: Router) { }
 
-  getAllDoctors(): Observable<Doctor[]>{
-    return this.httpClient.get<Doctor[]>("api/admin/doctors",{observe: 'response'})
+  getAllPatients(): Observable<Patient[]>{
+    return this.httpClient.get<Patient[]>("api/admin/patients",{observe: 'response'})
       .pipe(
         map((resp)=>{
           if(!!resp.body){
@@ -23,12 +23,11 @@ export class DoctorService {
     );
   }
 
-  getDoctorById(id_doctor:number): Observable<Doctor>{
-    return this.httpClient.get<Doctor>("api/admin/doctor",{
+  getPatientById(id_patient:number): Observable<Patient>{
+    return this.httpClient.get<Patient>("api/admin/patient",{
       params: {
-        "id_doctor": id_doctor
+        "id_patient": id_patient
       }
     });
-   
-  }
-}
+    //return this.CENTERS.find(center=> center.id_vaccination_center == id)
+}}

@@ -11,6 +11,7 @@ import { NgxPermissionsGuard } from 'ngx-permissions';
 import { RoleGuardGuard } from './guard/role-guard.guard';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { DoctorComponent } from './component/doctor/doctor.component';
+import { PatientComponent } from './component/patient/patient.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: "centers", component: VaccinationCenterListComponent, canActivate: [RoleGuardGuard]},//, canActivate: [AuthGuard]},
   {path: "appointments", component: AppointmentListComponent},
   {path: "centers/detail/:id_vaccination_center", component: VaccinationCenterComponent},//, canActivate: [AuthGuard]},
-  {path: "doctors/detail/:name", component: DoctorComponent},
+  {path: "doctors/detail/:id_doctor", component: DoctorComponent},
+  {path: "patients/detail/:id_patient", component: PatientComponent},
   // {path: "admin", component: AdminPageComponent, canActivate: [NgxPermissionsGuard], data:{Permissions:{only: ['DEVELOPER']}}},
   {path: "admin", component: AdminPageComponent, canActivate: [RoleGuardGuard],
   data:{

@@ -13,17 +13,15 @@ export class DoctorComponent implements OnInit {
 
   @Input() doctor?: Doctor
 
-
+  
   URL?: String|null;
 
   constructor(private route: ActivatedRoute, private service: DoctorService) { }
 
   ngOnInit(): void {
-    const name = String(this.route.snapshot.paramMap.get('name'));
-    console.log("nom du beau gosse : " + name);
-    //this.center = this.service.getVaccinationCenterById(id_vaccination_center);
-    this.URL = this.route.snapshot.paramMap.get('name');
-    this.service.getDoctorByName(name).subscribe(resultDoctor=>{
+    const id_doctor = Number(this.route.snapshot.paramMap.get('id_doctor'));
+    this.URL = this.route.snapshot.paramMap.get('id_doctor');
+    this.service.getDoctorById(id_doctor).subscribe(resultDoctor=>{
       this.doctor = resultDoctor;
     });
   }
