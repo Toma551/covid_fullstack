@@ -62,15 +62,25 @@ La page /détails du centre sélectionné s'ouvre, il faut ensuite sélectionner
 <br/>Pour retourner sur la page précédente, il faut appuyer sur le bouton retour en haut à droite de la page.
 <br/><!>Il ne faut pas naviguer via l'URL ou rafraichir la page car pour une raison inconnue, cela annule la connexion de l'utilisateur.<!>
 
-### Page admin
-Une page admin est disponible et est réservée aux utilisateurs ayant comme rôle "Admin" dans la bdd.
+### Pages 
+Ces pages sont disponibles via le menu déroulant en haut à gauche.
+<br/>En n'étant pas connecté, nou sommes invités à le faire. Par la suite un bouton déconnexion est disponible dans ce menu.
+<br/>Un bouton retour est disponible en haut à droite dans le bandeau.
+1) Page centers
+<br/>Page d'accueil, elle affiche la liste des centres.
+
+2) Page admin
+<br/>Une page admin est disponible et est réservée aux utilisateurs ayant comme rôle "Admin" dans la bdd.
 <br/>Cette page permet de visualiser la liste des docteurs et la liste des patients.
 <br/>Le verrouillage de la page est effectué à l'aide d'un guard implémentant CanActivate.
 <br/>Une amélioration serait de modifier les entités de la manière suivante :
 - Lier un docteur à un centre de vaccination, créer un administrateur de centre qui aurait accès à la liste des docteurs de son centre sur sa page admin. La page admin du docteur contiendrait la liste des rendez-vous de son centre.
 - Créer un compte admin suprême qui aurait la liste de toutes les entités et pourrait les supprimer.
-
 Par manque de temps et de capacité, il n'a pas été possible de réaliser ces modifications.
+
+3) Page Liste des RDV
+<br/>Cette page est réservée aux utilisateurs ayant comme rôle "Admin" ou "Doctor"
+<br/>Elle affiche la liste des rendez-vous et permet la suppression de ceux-ci.
 
 ### Création de compte
 Il était envisagé de créer une page dédiée à la création de comptes :
