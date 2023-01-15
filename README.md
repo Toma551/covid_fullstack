@@ -53,3 +53,24 @@ La page /détails du centre sélectionné s'ouvre, il faut ensuite sélectionner
 <br/>Pour retourner sur la page précédente, il faut appuyer sur le bouton retour en haut à droite de la page.
 <br/><!>Il ne faut pas naviguer via l'URL ou rafraichir la page car pour une raison inconnue, cela annule la connexion de l'utilisateur.<!>
 
+### Page admin
+Une page admin est disponible et est réservée aux utilisateurs ayant comme rôle "Admin" dans la bdd.
+<br/>Cette page permet de visualiser la liste des docteurs et la liste des patients.
+<br/>Une amélioration serait de modifier les entités de la manière suivante :
+- Lier un docteur à un centre de vaccination, créer un administrateur de centre qui aurait accès à la liste des docteurs de son centre sur sa page admin. La page admin du docteur contiendrait la liste des rendez-vous de son centre.
+- Créer un compte admin suprême qui aurait la liste de toutes les entités et pourrait les supprimer.
+
+Par manque de temps et de capacité, il n'a pas été possible de réaliser ces modifications.
+
+### Création de compte
+Il était envisagé de créer une page dédiée à la création de comptes :
+- Une page libre d'accès à tous pour la création de compte patient.
+- Une page limitée aux administrateurs de centre et plus pour créer des comptes docteur.
+- Une page limitée aux administrateurs plus pour créer des comptes d'administrateur de centre et pour créer des centres.
+
+### Fonctionnalités spéciales
+- Une métrique a été ajoutée mais elle n'est pas utilisée
+- Le micrometer n'a pas été configuré
+- Un Token Bucket a été mis en place mais uniquement sur les requêtes sur la page /centers
+- Une fois le Bucket vide, une redirection s'effectue sur la page /waiting avec un compte à rebours
+- Une fois le compte à rebours terminé, la redirection s'effectue sur la page précédente.
