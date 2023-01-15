@@ -2,11 +2,12 @@
   <ul class="detail">
       <li *ngFor="let anAppointment of appointments">
           {{anAppointment.date}}
-          <button (click)="selectAppointment(anAppointment)">
+          <br>
+          <!-- <button (click)="selectAppointment(anAppointment)">
             ▼
-          </button>
+          </button> -->
           <button (click)="deleteAppointment(anAppointment)">
-            X
+            Suppr RDV
           </button>
       </li>
   </ul>

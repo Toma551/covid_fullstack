@@ -9,10 +9,10 @@ import { VaccinationCenterComponent } from './component/vaccination-center/vacci
 import { VaccinationCenterListComponent } from './component/vaccination-center-list/vaccination-center-list.component';
 import { AppointmentComponent } from './component/appointment/appointment.component';
 import { LoginComponent } from './component/login/login.component';
-import { WaitingComponent } from './waiting/waiting.component';
+import { WaitingComponent } from './component/waiting/waiting.component';
 import { AppointmentListComponent } from './component/appointment-list/appointment-list.component';
-import { AdminPageComponent } from './admin-page/admin-page.component';
-import { UtilisateurComponent } from './utilisateur/utilisateur.component';
+import { AdminPageComponent } from './component/admin-page/admin-page.component';
+import { UtilisateurComponent } from './component/utilisateur/utilisateur.component';
 import { DoctorComponent } from './component/doctor/doctor.component';
 import { PatientComponent } from './component/patient/patient.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';

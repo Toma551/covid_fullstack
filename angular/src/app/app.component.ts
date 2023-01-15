@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from './service/login.service';
 import { Doctor } from './utilisateur';
-import { Utilisateur } from './utilisateur/utilisateur';
+import { Utilisateur } from './component/utilisateur/utilisateur';
 
 
 @Component({

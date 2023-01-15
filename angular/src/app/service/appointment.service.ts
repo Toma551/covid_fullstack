@@ -69,7 +69,7 @@ export class AppointmentService {
 
   deleteAppointmentById(id_appointment: number) {
     console.log(id_appointment)
-    this.httpClient.get<Appointment>("api/public/delete_appointment",
+    this.httpClient.get("api/public/delete_appointment",
     {params: {
         "id_appointment": id_appointment
       }

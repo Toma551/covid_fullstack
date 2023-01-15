@@ -17,7 +17,7 @@ import { LoginService } from 'src/app/service/login.service';
 export class AppointmentComponent implements OnInit {
   disponible: Boolean;
   center!: VaccinationCenter;
-  appointment: Appointment = {id_appointment:2, date: "01/01/2000", id_vaccination_center: 1, id_patient:0};
+  appointment: Appointment = {id_appointment:2, date: "01/01/2000", id_vaccination_center: 1, id_patient:-1};
   temp?: Appointment;
 
   constructor(private route: ActivatedRoute,

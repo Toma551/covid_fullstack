@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Doctor } from 'src/app/admin-page/doctor';
+import { Doctor } from 'src/app/component/admin-page/doctor';
 import { DoctorService } from 'src/app/service/doctor.service';
 
 
@@ -13,7 +13,7 @@ export class DoctorComponent implements OnInit {
 
   @Input() doctor?: Doctor
 
-  
+
   URL?: String|null;
 
   constructor(private route: ActivatedRoute, private service: DoctorService) { }

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, map, Observable } from 'rxjs';
-import { Patient } from '../admin-page/patient';
+import { Patient } from '../component/admin-page/patient';
 
 @Injectable({
   providedIn: 'root'

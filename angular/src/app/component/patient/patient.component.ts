@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Patient } from 'src/app/admin-page/patient';
+import { Patient } from 'src/app/component/admin-page/patient';
 import { PatientService } from 'src/app/service/patient.service';
 
 @Component({

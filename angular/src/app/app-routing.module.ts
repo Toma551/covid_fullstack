@@ -4,11 +4,11 @@ import { VaccinationCenterComponent } from './component/vaccination-center/vacci
 import { VaccinationCenterListComponent } from './component/vaccination-center-list/vaccination-center-list.component';
 import { LoginComponent } from './component/login/login.component';
 import { AuthGuard } from './guard/auth.guard';
-import { WaitingComponent } from './waiting/waiting.component';
+import { WaitingComponent } from './component/waiting/waiting.component';
 import { AppointmentListComponent } from './component/appointment-list/appointment-list.component';
-import { AdminPageComponent } from './admin-page/admin-page.component';
+import { AdminPageComponent } from './component/admin-page/admin-page.component';
 import { RoleGuardGuard } from './guard/role-guard.guard';
-import { UtilisateurComponent } from './utilisateur/utilisateur.component';
+import { UtilisateurComponent } from './component/utilisateur/utilisateur.component';
 import { DoctorComponent } from './component/doctor/doctor.component';
 import { PatientComponent } from './component/patient/patient.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';

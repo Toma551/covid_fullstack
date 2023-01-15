@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, map, Observable } from 'rxjs';
-import { Doctor } from '../admin-page/doctor';
+import { Doctor } from '../component/admin-page/doctor';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +29,6 @@ export class DoctorService {
         "id_doctor": id_doctor
       }
     });
-   
+
   }
 }
