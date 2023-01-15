@@ -11,19 +11,10 @@ import { AppointmentComponent } from './component/appointment/appointment.compon
 import { LoginComponent } from './component/login/login.component';
 import { WaitingComponent } from './waiting/waiting.component';
 import { AppointmentListComponent } from './component/appointment-list/appointment-list.component';
-import { NgxPermissionsModule, NgxPermissionsService } from 'ngx-permissions';
 import { AdminPageComponent } from './admin-page/admin-page.component';
-import { LoadPermissionService } from './service/load-permission.service';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 
-export function permissionsFactory(loadPermissionService: LoadPermissionService, ngxPermissionsService: NgxPermissionsService){
-  return () => {
-    return loadPermissionService.loadPermissions().then((data) =>{
-      ngxPermissionsService.loadPermissions(data)
-      return true
-    })
-  }
-}
+
 
 @NgModule({
   declarations: [
@@ -42,14 +33,9 @@ export function permissionsFactory(loadPermissionService: LoadPermissionService,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgxPermissionsModule.forRoot()
   ],
-  providers: [{
-    provide: APP_INITIALIZER,
-    useFactory: permissionsFactory,
-    deps:[LoadPermissionService, NgxPermissionsService],
-    multi: true
-  }],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

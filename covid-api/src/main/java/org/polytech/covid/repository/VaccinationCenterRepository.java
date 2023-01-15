@@ -3,6 +3,7 @@ package org.polytech.covid.repository;
 import java.util.List;
 import java.util.Optional;
 
+import org.checkerframework.checker.nullness.Opt;
 import org.polytech.covid.entity.VaccinationCenter;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -20,5 +21,6 @@ public interface VaccinationCenterRepository extends JpaRepository<VaccinationCe
     /*
     @Query("from VaccinationCenter v where v.city like :city")
     public List<VaccinationCenter> findAllByCity(@Param("city") String city);
-    */
-}
+    */  
+
+}   

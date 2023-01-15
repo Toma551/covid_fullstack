@@ -2,6 +2,7 @@ package org.polytech.covid.controller;
 
 import java.util.List;
 
+import org.polytech.covid.entity.Appointment;
 import org.polytech.covid.entity.Doctor;
 import org.polytech.covid.repository.DoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +21,22 @@ public class PublicDoctorRestController {
                 return doctorRepository.findAllByNameIgnoreCaseLike(name+"%");
             }
 
-    @GetMapping(path = "api/user")
+    @GetMapping(path = "api/admin/doctors")
+    public List<Doctor> getDoctors() {
+                return doctorRepository.findAllDoctors();
+            }
+
+    @GetMapping(path = "api/doctor")
     public Integer user(@RequestParam("login") String login) {
         Doctor doctor = new Doctor();
         doctor = doctorRepository.findByLogin(login+"%").orElse(null);
         return doctor.getId_doctor();
     }
+
+    // @GetMapping(path = "api/doctor/rdv")
+    // public List<Appointment> getAppointements(
+    //     @RequestParam("login") String login){
+
+    //     }
+
 }

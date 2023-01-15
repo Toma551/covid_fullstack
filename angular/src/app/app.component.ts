@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from './service/login.service';
 import { Doctor } from './utilisateur';
+import { Utilisateur } from './utilisateur/utilisateur';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class AppComponent implements OnInit {
   word = '';
   tokens = '';
   duree = '';
-  utilisateur?: Doctor;
+  utilisateur?: Utilisateur;
   constructor(
               private readonly http: HttpClient,
               private readonly router: Router,
