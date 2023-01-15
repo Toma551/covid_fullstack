@@ -11,24 +11,16 @@ import { AppointmentComponent } from './component/appointment/appointment.compon
 import { LoginComponent } from './component/login/login.component';
 import { WaitingComponent } from './waiting/waiting.component';
 import { AppointmentListComponent } from './component/appointment-list/appointment-list.component';
-import { NgxPermissionsModule, NgxPermissionsService } from 'ngx-permissions';
 import { AdminPageComponent } from './admin-page/admin-page.component';
-import { LoadPermissionService } from './service/load-permission.service';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
+import { DoctorComponent } from './component/doctor/doctor.component';
+import { PatientComponent } from './component/patient/patient.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 
 
-export function permissionsFactory(loadPermissionService: LoadPermissionService, ngxPermissionsService: NgxPermissionsService){
-  return () => {
-    return loadPermissionService.loadPermissions().then((data) =>{
-      ngxPermissionsService.loadPermissions(data)
-      return true
-    })
-  }
-}
 
 @NgModule({
   declarations: [
@@ -40,25 +32,18 @@ export function permissionsFactory(loadPermissionService: LoadPermissionService,
     WaitingComponent,
     AppointmentListComponent,
     AdminPageComponent,
-    UtilisateurComponent
+    UtilisateurComponent,
+    DoctorComponent,
+    PatientComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgxPermissionsModule.forRoot(),
-    MatToolbarModule,
-    MatMenuModule,
-    MatIconModule,
-    BrowserAnimationsModule
   ],
-  providers: [{
-    provide: APP_INITIALIZER,
-    useFactory: permissionsFactory,
-    deps:[LoadPermissionService, NgxPermissionsService],
-    multi: true
-  }],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

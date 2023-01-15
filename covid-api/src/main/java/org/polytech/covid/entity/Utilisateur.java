@@ -8,7 +8,7 @@ import javax.persistence.Id;
 public class Utilisateur {
     @Id
     @GeneratedValue
-    private Long id;
+    private int id;
     
     private String login;
     
@@ -24,11 +24,11 @@ public class Utilisateur {
         this.role = role;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
     
-    public void setId(final Long id) {
+    public void setId(final int id) {
         this.id = id;
     }
     

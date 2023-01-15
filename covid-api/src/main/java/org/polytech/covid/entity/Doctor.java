@@ -2,6 +2,12 @@ package org.polytech.covid.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.ForeignKey;
 
 @Entity
 public class Doctor{
@@ -10,7 +16,9 @@ public class Doctor{
     private String name;
     private String mail;
     private String telephone;
-    private String login;  
+    @JsonIgnore
+    private String login; 
+    @JsonIgnore 
     private String password;
 
     public String getLogin() {
