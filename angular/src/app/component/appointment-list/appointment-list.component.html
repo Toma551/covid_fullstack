@@ -1,4 +1,4 @@
-<div class= "liste" *ngxPermissionsOnly="'DEVELOPER'">
+<div class= "liste">
   <ul class="detail">
       <li *ngFor="let anAppointment of appointments">
           {{anAppointment.date}}
@@ -11,5 +11,3 @@
       </li>
   </ul>
 </div>
-
-<app-vaccination-center  class="selection" [center]="center"></app-vaccination-center>

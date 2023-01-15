@@ -83,7 +83,7 @@ export class LoginService {
   //   return this.httpClient.get('/api/role',{
   //     params: {
   //       "username": username
-  //     }, 
+  //     },
   //     responseType: 'text'
 
   //   })
@@ -94,7 +94,7 @@ export class LoginService {
     return this.httpClient.get('/api/role',{
       params: {
         "username": username
-      }, 
+      },
       observe: 'response',
       responseType : 'text'
     })
@@ -105,7 +105,7 @@ export class LoginService {
         }
         return ""
       }),
-      
-  );
-  }
+
+    );
+    }
 }

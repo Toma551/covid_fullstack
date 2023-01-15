@@ -1,22 +1,33 @@
 <mat-toolbar color="primary">
   <span class="fill-remaining-space">
     <div *ngIf="loginService.getUtilisateur()">
-      <button  mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()" >
+      <button  mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger" (mouseover)="getRole()" (mouseover)="menuTrigger.openMenu()" >
         <mat-icon>menu</mat-icon>
-        <span class = "user"> Utilisateur :  {{loginService.getUtilisateur()}} </span>
+        <span class = "user">
+          <span *ngIf="this.role == null">
+            Utilisateur :
+          </span>
+          {{this.role}}
+          {{loginService.getUtilisateur()}}
+        </span>
       </button>
 
       <mat-menu #menu="matMenu" [overlapTrigger]="false">
       <span (mouseleave)="menuTrigger.closeMenu()"></span>
 
-            <button mat-menu-item routerLink="/centers">
+      <button mat-menu-item routerLink="/centers">
         <mat-icon>home</mat-icon>
         <span>Centres</span>
       </button>
 
-      <button mat-menu-item routerLink="/appointments">
+      <button mat-menu-item *ngIf="this.role=='Doctor' || this.role=='Admin'" routerLink="/appointments">
         <mat-icon>calendar_today</mat-icon>
         <span>Liste des RDV</span>
+      </button>
+
+      <button mat-menu-item *ngIf="this.role=='Admin'" routerLink="/admin">
+        <mat-icon>person</mat-icon>
+        <span>Admin</span>
       </button>
 
       <button mat-menu-item (click)="loginService.logout()">

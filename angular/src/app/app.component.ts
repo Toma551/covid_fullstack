@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
   word = '';
   tokens = '';
   duree = '';
+  role: string;
   utilisateur?: Utilisateur;
   constructor(
               private readonly http: HttpClient,
@@ -28,6 +29,9 @@ export class AppComponent implements OnInit {
               public readonly loginService: LoginService,
             ) {}
 
+  getRole() {
+    this.loginService.getRole(this.loginService.getUtilisateur()).subscribe(role=>{this.role = role;});
+  }
 
   bucket() {
     this.http.get<any>('api/infos', {observe: 'response'}).subscribe({

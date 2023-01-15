@@ -1,27 +1,27 @@
 <div class= "liste">
-    <h3>Liste des docteurs</h3>
+    <div class= "title">Liste des docteurs</div>
 <ul>
     <li *ngFor="let aDoctor of doctors">
       {{aDoctor.name}}
         <button [ngClass]="selected==aDoctor ? 'selected' : 'not-selected'"  (click)="selectDoctor(aDoctor)">
           ▼
-        </button>  
+        </button>
     </li>
 </ul>
 <app-doctor  [doctor]="selected"  ></app-doctor>
 </div>
 
 <div class= "liste_patients">
-    <h3>Liste des patients</h3>
+    <div class= "title">Liste des patients</div>
     <ul>
         <li *ngFor="let aPatient of patients">
           {{aPatient.fullname}} {{aPatient.lastname}}
             <button [ngClass]="selected_patient==aPatient ? 'selected' : 'not-selected'"  (click)="selectPatient(aPatient)">
               ▼
-            </button>  
+            </button>
         </li>
     </ul>
     <app-patient  [patient]="selected_patient"  ></app-patient>
-    </div>
+</div>
 
 

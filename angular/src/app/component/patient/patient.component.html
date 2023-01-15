@@ -1,4 +1,8 @@
 <div class="detail" *ngIf="patient">
-    Patient sélectionné :<h3 [title] = "patient.fullname" ><a routerLink="/patients/detail/{{patient.id_patient}}">{{patient.fullname | uppercase}}</a></h3>
-    <div>{{patient.mail | lowercase}} <span>{{patient.telephone}} {{patient.birth_date}}</span></div>
+  <div class="title" >Patient sélectionné :</div>
+  <span [title] = "patient.fullname" ><a routerLink="/patients/detail/{{patient.id_patient}}">{{patient.fullname}} {{patient.lastname | uppercase}}</a></span>
+  <br><br>
+  <div>{{patient.mail | lowercase}}</div>
+  <div>{{patient.birth_date}}</div>
+  <div>{{patient.telephone}}</div>
 </div>

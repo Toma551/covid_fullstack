@@ -1,4 +1,7 @@
 <div class="detail" *ngIf="doctor">
-    Docteur sélectionné :<h3 [title] = "doctor.name" ><a routerLink="/doctors/detail/{{doctor.id_doctor}}">{{doctor.name | uppercase}}</a></h3>
-    <div>{{doctor.mail | lowercase}} <span>{{doctor.telephone}}</span></div>
+  <div class="title" >Docteur sélectionné :</div>
+  <span [title] = "doctor.name" ><a routerLink="/doctors/detail/{{doctor.id_doctor}}">Dr. {{doctor.name | uppercase}}</a></span>
+  <br><br>
+  <div>{{doctor.mail | lowercase}}</div>
+  <div>{{doctor.telephone}}</div>
 </div>

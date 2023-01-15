@@ -7,7 +7,6 @@ import { AuthGuard } from './guard/auth.guard';
 import { WaitingComponent } from './waiting/waiting.component';
 import { AppointmentListComponent } from './component/appointment-list/appointment-list.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
-import { NgxPermissionsGuard } from 'ngx-permissions';
 import { RoleGuardGuard } from './guard/role-guard.guard';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { DoctorComponent } from './component/doctor/doctor.component';
@@ -26,9 +25,9 @@ const materialModules = [
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'waiting', component: WaitingComponent},
-  {path: "centers", component: VaccinationCenterListComponent, canActivate: [RoleGuardGuard]},//, canActivate: [AuthGuard]},
+  {path: "centers", component: VaccinationCenterListComponent},
   {path: "appointments", component: AppointmentListComponent},
-  {path: "centers/detail/:id_vaccination_center", component: VaccinationCenterComponent},//, canActivate: [AuthGuard]},
+  {path: "centers/detail/:id_vaccination_center", component: VaccinationCenterComponent},
   {path: "doctors/detail/:id_doctor", component: DoctorComponent},
   {path: "patients/detail/:id_patient", component: PatientComponent},
   // {path: "admin", component: AdminPageComponent, canActivate: [NgxPermissionsGuard], data:{Permissions:{only: ['DEVELOPER']}}},
