@@ -80,7 +80,7 @@ Par manque de temps et de capacité, il n'a pas été possible de réaliser ces 
 
 3) Page Liste des RDV
 <br/>Cette page est réservée aux utilisateurs ayant comme rôle "Admin" ou "Doctor"
-<br/>Elle affiche la liste des rendez-vous et permet la suppression de ceux-ci.
+<br/>Elle affiche la liste des rendez-vous et permet la suppression de ceux-ci. (fonctionnait dans une maj précédente ...)
 
 <!>Le rôle du compte est rappelé à côté du nom sur le bouton du menu déroulant. Un fonctionnement étrange du back peut empêcher la récupération du rôle de l'utilisateur connecté. Dans ce cas, les boutons d'accès correspondant au rôle de l'utilisateur seront cachés <!>
 
