@@ -1,22 +1,50 @@
-<div class =titre>
-  <h1>{{title}}</h1>
-</div>
+<mat-toolbar color="primary">
+  <span class="fill-remaining-space">
+    <div *ngIf="loginService.getUtilisateur()">
+      <button  mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()" >
+        <mat-icon>menu</mat-icon>
+        <span class = "user"> Utilisateur :  {{loginService.getUtilisateur()}} </span>
+      </button>
+
+      <mat-menu #menu="matMenu" [overlapTrigger]="false">
+      <span (mouseleave)="menuTrigger.closeMenu()"></span>
+
+            <button mat-menu-item routerLink="/centers">
+        <mat-icon>home</mat-icon>
+        <span>Centres</span>
+      </button>
+
+      <button mat-menu-item routerLink="/appointments">
+        <mat-icon>calendar_today</mat-icon>
+        <span>Liste des RDV</span>
+      </button>
+
+      <button mat-menu-item (click)="loginService.logout()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Déconnexion</span>
+      </button>
+
+      </mat-menu>
+    </div>
+    <div *ngIf="!loginService.getUtilisateur() && this.router.url != '/login'">
+      <a class = "connect" routerLink="/login"> Se connecter </a>
+    </div>
+  </span>
+  <span class="fill-remaining-space">
+    <span class="titre" >Vaccination COVID</span>
+  </span>
+
+  <button *ngIf="this.router.url != '/login' && this.router.url != '/centers'" mat-icon-button routerLink="/centers">
+    <mat-icon>keyboard_return</mat-icon>
+  </button>
+
+</mat-toolbar>
 
 <div>
   <router-outlet>
   </router-outlet>
 </div>
 
-<!-- <div *ngIf="tokens ! null">
-  {{tokens}}
-</div> -->
 
-<div class = "boutons" *ngIf="loginService.getUtilisateur()">
-  <div class = "user"> Utilisateur :  {{loginService.getUtilisateur()}} </div>
-  <div> <button class = "myRDV" routerLink="/appointments" >Voir mes RDV</button> </div>
-  <div> <button class = "logout" (click)="loginService.logout()" >Déconnexion</button> </div>
-  <div> <button class = "admin" routerLink="/admin" >Admin</button> </div>
-  <div> <button class = "utilisateur" routerLink="/utilisateur" >Utilisateur</button> </div>
-</div>
 
 

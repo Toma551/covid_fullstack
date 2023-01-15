@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
   utilisateur?: Doctor;
   constructor(
               private readonly http: HttpClient,
-              private readonly router: Router,
+              public readonly router: Router,
               public readonly loginService: LoginService,
             ) {}
 

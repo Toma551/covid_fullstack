@@ -1,32 +1,20 @@
-<div class="detail" *ngIf="center">
-    Centre sélectionné :<h3 [title] = "center.name" ><a routerLink="/centers/detail/{{center.id_vaccination_center}}">{{center.name | uppercase}}</a></h3>
-    <div>{{center.adresse | lowercase}} <span>{{center.postal_code}} {{center.city}}</span></div>
 
+<div class="detail" *ngIf="center">
+  <div class="title" >Centre sélectionné :</div>
+    <span [title] = "center.name" ><a *ngIf="!URL && center" routerLink="/centers/detail/{{center.id_vaccination_center}}"></a>{{center.name | uppercase}}</span>
+    <br><br>
+    <span>{{center.adresse | lowercase}} <span>{{center.postal_code}} {{center.city}}</span></span>
     <!--<div>Ouvert depuis le {{center.openingDate | date:'dd/MM/Y'}}</div>-->
+    <br><br>
+    <button *ngIf="!URL && center" mat-icon-button routerLink="/centers/detail/{{center.id_vaccination_center}}">
+      <span>Prendre RDV</span>
+      <mat-icon>insert_invitation</mat-icon>
+    </button>
 </div>
 
-<div class = "boutons" *ngIf="URL && center">
+<div *ngIf="URL && center">
   <app-appointment></app-appointment>
-  <br>
-  <button class = "retour" routerLink="/centers">
-    Retour
-  </button>
 </div>
 
-<!--
-<div>
-    <button (click)="clearName()">Clear Name</button>
-</div>
-
-<div class="detail" *ngIf="center">
-    <label for="name">Nom du centre:</label>
-    <input id="name" [(ngModel)]="center.name" />
-</div>
-
-<div>
-  <button (click)="delete()">Supprimer</button>
-</div>
-
--->
 
 

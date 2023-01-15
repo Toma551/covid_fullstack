@@ -1,8 +1,12 @@
 .recherche{
-    margin-top: 50px;
-    margin-left: auto;
+    top: 80px;
+    background-color:rgb(255, 255, 255) ;
+    position: fixed;
+    margin-left: 20%;
     margin-right: auto;
-    width:fit-content;
+    padding-top: 30px;
+    text-align: center;
+    width:400px;
     //border: 1px solid rgba(0, 0, 0, 0.425);
 }
 
@@ -56,33 +60,39 @@
 
 
 .liste {
-    margin-top: 30px;
-    margin-left: auto;
+    float:left;
+    margin-top: 15%;
+    margin-left: 20%;
     margin-right: auto;
     //border: 1px solid rgba(0, 0, 0, 0.425);
     width: fit-content;
+    height: fit-content;
 }
 
 .liste li{
-    margin-top: 5px;
+    margin-top: 10%;
     text-align:center;
     list-style-position: outside;
     list-style-type:none;
-    border: 2px solid rgba(0, 0, 0, 0.425);
+    //border: 2px solid rgba(0, 0, 0, 0.425);
 }
 
 .liste button {
-    text-align: left;
-    background-color:rgba(0, 0, 0, 0.616) ;
+    background-color:rgb(70, 70, 207) ;
     margin-left: 10px;
+    border-radius: 10px;
+    border: 4px double #cccccc;
     color: #eeeeee;
-    font-size: 15px;
-    padding: 3px;
-    width: fit-content;
+    font-size: 18px;
+    padding: 9px;
+    width: 300px;
     transition: all 0.3s;
     cursor: pointer;
 }
 
-.selection{
-  text-align:center;
+app-vaccination-center{
+  margin-left: 10%;
+  float:right;
+  position:fixed;
+  bottom: 40%;
 }

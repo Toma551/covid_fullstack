@@ -4,26 +4,25 @@
   <mat-form-field>
     <input matInput id="city" [(ngModel)]="search_entry" placeholder="Ville">
   </mat-form-field>
-  <button (click)="searchCenterByCity(search_entry)">
+  <button mat-button (click)="searchCenterByCity(search_entry)">
     Chercher
   </button>
 </div>
 
 
-
 <div class= "liste">
 <ul>
     <li *ngFor="let aCenter of centers">
-      {{aCenter.name}}
         <button [ngClass]="selected==aCenter ? 'selected' : 'not-selected'" [ngStyle]="{'font_weight' : isSpecialCenter(aCenter) ? 'bold' : 'normal'} " (click)="selectCenter(aCenter)">
-          ▼
+          {{aCenter.name}}
         </button>
     </li>
 </ul>
+
 </div>
 
 <app-vaccination-center  [center]="selected" (deleted)="onDeleted($event)" ></app-vaccination-center>
 
-<div *ngxPermissionsOnly="'DEVELOPER'">
+<!-- <div *ngxPermissionsOnly="'DEVELOPER'">
   <h1>TEST</h1>
-</div>
+</div> -->

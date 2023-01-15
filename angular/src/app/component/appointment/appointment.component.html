@@ -1,18 +1,12 @@
 <div class = "appointement">Sélectionnez une date :
 
-<input class = "date" type="date" (change)="setDateOnChange($event)" min="2023-01-01" max="2023-12-31">
+  <input class = "date" type="date" (change)="setDateOnChange($event)" min="2023-01-01" max="2023-12-31">
 
-<!-- <mat-form-field appearance="fill">
-  <mat-label>Date</mat-label>
-  <input matInput [readonly]="true" [matDatepicker]="picker" (change)="setDateOnChange($event)" min="2023-01-01" max="2024-12-31">
-  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-</mat-form-field> -->
-
-<div *ngIf="disponible==false"> Pas de RDV disponible dans ce centre le {{this.appointment.date}}.</div>
-<div *ngIf="disponible==true"> RDV enregistré avec succès le {{this.appointment.date}} !</div>
-</div>
-
+  <div *ngIf="disponible==false"> Pas de RDV disponible dans ce centre le {{this.appointment.date}}.</div>
+  <div *ngIf="disponible==true"> RDV enregistré avec succès le {{this.appointment.date}} !</div>
   <button class = "rdv" (click)="createAppointment(this.appointment)">
     Prendre RDV
   </button>
+</div>
+
+
