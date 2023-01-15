@@ -70,11 +70,11 @@ Il était envisagé de créer une page dédiée à la création de comptes :
 - Une page limitée aux administrateurs plus pour créer des comptes d'administrateur de centre et pour créer des centres.
 
 ### Fonctionnalités spéciales
-- Une métrique a été ajoutée mais elle n'est pas utilisée
-- Le micrometer n'a pas été configuré
-- Un Token Bucket a été mis en place mais uniquement sur les requêtes sur la page /centers
-- Une fois le Bucket vide, une redirection s'effectue sur la page /waiting avec un compte à rebours
-- Une fois le compte à rebours terminé, la redirection s'effectue sur la page précédente.
+- Une métrique a été ajoutée mais elle n'est pas utilisée.
+- Le micrometer n'a pas été configuré.
+- Un Token Bucket a été mis en place mais uniquement sur les requêtes sur la page /centers et sur la navigation d'une page à une autre.
+- Une fois le Bucket vide, une redirection s'effectue sur la page /waiting avec un compte à rebours.
+- Une fois le compte à rebours terminé, la redirection s'effectue sur la page /centers.
 - La gestion des Etags n'a pas été effectuée
 
 ## Mise en production
