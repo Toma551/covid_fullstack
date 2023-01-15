@@ -25,16 +25,25 @@ INSERT INTO vaccination_center (id_vaccination_center,adresse, city, name, posta
 <br/>INSERT INTO vaccination_center (id_vaccination_center,adresse, city, name, postal_code) VALUES ('4', '0 Rue de nulle-part', 'Metz', 'Centre 4', '57000');
 
 ### Table Utilisateur
-insert into utilisateur (id, login, password) values ('1', 'toto', '$2a$10$wH0ILGDmmXAZi7CU9.akleJ2xYdGAAnQ9hWouviM13GC4G6Oz0S3y')
-<br/>insert into utilisateur (id, login, password) values ('2', 'titi', '$2a$10$yDajd8PAsi/2sZH7gbdn4OeBBWW3moZYXxZWbOcA0QUhAoxNYiVtK')
+insert into utilisateur (id, login, password, role) values ('1', 'toto', '$2a$10$wH0ILGDmmXAZi7CU9.akleJ2xYdGAAnQ9hWouviM13GC4G6Oz0S3y', 'Admin')
+<br/>insert into utilisateur (id, login, password, role) values ('2', 'titi', '$2a$10$yDajd8PAsi/2sZH7gbdn4OeBBWW3moZYXxZWbOcA0QUhAoxNYiVtK', 'Patient')
 
 ### Table Doctor
-INSERT INTO doctor (id_doctor, name, mail, telephone, login, password) VALUES ('1', 'David Manuel', 'davidmanuel@gmail.com', '06666666', 'toto', '$2a$10$wH0ILGDmmXAZi7CU9.akleJ2xYdGAAnQ9hWouviM13GC4G6Oz0S3y');
+INSERT INTO doctor (id_doctor, name, mail, telephone, login, password, role) VALUES ('1', 'David Manuel', 'davidmanuel@gmail.com', '06666666', 'toto', '$2a$10$wH0ILGDmmXAZi7CU9.akleJ2xYdGAAnQ9hWouviM13GC4G6Oz0S3y');
 
 ### Table Patient
-INSERT INTO patient (id_patient, birth_date, fullname, lastname, mail, telephone) VALUES ('1', '01/04/2000', 'toto', 'titi','tititoto@gmail.com','0778987562');
+INSERT INTO patient (id_patient, birth_date, fullname, lastname, mail, telephone, login, password) VALUES ('1', '01/04/2000', 'toto', 'titi','tititoto@gmail.com','0778987562', 'titi', '$2a$10$yDajd8PAsi/2sZH7gbdn4OeBBWW3moZYXxZWbOcA0QUhAoxNYiVtK');
 
 ps: Les mots de passe doivent être stockés avec un chiffrement BCrypt
+ 
+|  | **Utilisateur 1** | **Utilisateur 2** |
+| --- | --- | --- |
+| **login** | toto | titi |
+| **password** | toto | titi |
+| **rôle** | Admin | Patient |
+| **type** | Docteur | Patient |
+
+
 
 ## Détail de fonctionnement
 
