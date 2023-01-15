@@ -1,1 +1,13 @@
-<p>admin-page works!</p>
+<div class= "liste">
+<ul>
+    Liste
+    <li *ngFor="let aDoctor of doctors">
+      {{aDoctor.name}}
+        <button [ngClass]="selected==aDoctor ? 'selected' : 'not-selected'"  (click)="selectDoctor(aDoctor)">
+          ▼
+        </button>  
+    </li>
+</ul>
+</div>
+
+<app-doctor  [doctor]="selected"  ></app-doctor>

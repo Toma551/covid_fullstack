@@ -13,6 +13,7 @@ import { WaitingComponent } from './waiting/waiting.component';
 import { AppointmentListComponent } from './component/appointment-list/appointment-list.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
+import { DoctorComponent } from './component/doctor/doctor.component';
 
 
 
@@ -26,7 +27,8 @@ import { UtilisateurComponent } from './utilisateur/utilisateur.component';
     WaitingComponent,
     AppointmentListComponent,
     AdminPageComponent,
-    UtilisateurComponent
+    UtilisateurComponent,
+    DoctorComponent
   ],
   imports: [
     BrowserModule,
