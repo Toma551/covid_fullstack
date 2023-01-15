@@ -90,7 +90,7 @@ Il était envisagé de créer une page dédiée à la création de comptes :
 Un DockerFile est présent au sein du projet, dans le dossier du Back.
 Il permet la conteneurisation de la partie Back pour une compilation et un lancement de celui-ci dans un environnement stable.
 
-###Fonctionnement du DockerFile
+### Fonctionnement du DockerFile
 On utilise deux environnements différents :
 - openjdk:17-oracle qui sert de compilateur
 - openjdk:17-oracle qui sert de lanceur (dans l'idée seule une jre est nécessaire mais à cause d'un problème de compatibilité nous avons réutilisé une jdk)
