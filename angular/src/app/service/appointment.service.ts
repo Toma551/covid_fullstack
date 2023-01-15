@@ -38,13 +38,23 @@ export class AppointmentService {
     });
   }
 
-  getAppointmentByDate(Date:string): Observable<Appointment[]>{
-    return this.httpClient.get<Appointment[]>("api/public/appointment",{
+  getAppointmentByDate(Date:string): Observable<any>{
+    return this.httpClient.get("api/public/appointment",{
       params: {
         "date": Date
       }
     });
   }
+
+  getAppointmentByDateAndCenterId(Date:string,id_vaccination_center: number): Observable<any>{
+    return this.httpClient.get("api/public/appointment",{
+      params: {
+        "date": Date,
+        "id_vaccination_center": id_vaccination_center
+      }
+    });
+  }
+
 
   postAppointment(newAppointment: Appointment) {
     return this.httpClient.get<Appointment>('api/public/booking',

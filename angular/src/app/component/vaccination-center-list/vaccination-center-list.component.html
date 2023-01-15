@@ -1,22 +1,24 @@
 <div class = recherche>
   <label for="city">Recherche par ville : </label>
-  <br><input id="city" [(ngModel)]="search_entry" placeholder="Ville" />
-  <button (click)="searchCenterByCity(search_entry)">
+  <br>
+  <mat-form-field>
+    <input matInput id="city" [(ngModel)]="search_entry" placeholder="Ville">
+  </mat-form-field>
+  <button mat-button (click)="searchCenterByCity(search_entry)">
     Chercher
   </button>
 </div>
 
 
-
 <div class= "liste">
 <ul>
     <li *ngFor="let aCenter of centers">
-      {{aCenter.name}}
         <button [ngClass]="selected==aCenter ? 'selected' : 'not-selected'" [ngStyle]="{'font_weight' : isSpecialCenter(aCenter) ? 'bold' : 'normal'} " (click)="selectCenter(aCenter)">
-          ▼
-        </button>  
+          {{aCenter.name}}
+        </button>
     </li>
 </ul>
+
 </div>
 
 <app-vaccination-center  [center]="selected" (deleted)="onDeleted($event)" ></app-vaccination-center>

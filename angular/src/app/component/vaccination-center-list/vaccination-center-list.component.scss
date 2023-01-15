@@ -1,9 +1,13 @@
 .recherche{
-    margin-top: 50px;
-    margin-left: auto;
+    top: 80px;
+    background-color:rgb(255, 255, 255) ;
+    position: fixed;
+    margin-left: 20%;
     margin-right: auto;
-    width:fit-content;
-    border: 1px solid rgba(0, 0, 0, 0.425);
+    padding-top: 30px;
+    text-align: center;
+    width:400px;
+    //border: 1px solid rgba(0, 0, 0, 0.425);
 }
 
 .recherche label{
@@ -23,14 +27,14 @@
     //margin: 8px 8px;
     margin-top: 6px;
     margin-bottom: 10px;
-    border: 3px solid rgba(0, 0, 0, 0.425);
+    //border: 3px solid rgba(0, 0, 0, 0.425);
     transition: all 0.5s;
     border-radius: 4px;
     padding: 0px 10px;
 }
 
 .recherche button {
-    
+
     background-color:rgb(209, 17, 17) ;
     margin-left: 10px;
     border-radius: 10px;
@@ -41,7 +45,7 @@
     width: fit-content;
     transition: all 0.3s;
     cursor: pointer;
-    
+
 }
 
 .recherche button:hover {
@@ -56,27 +60,39 @@
 
 
 .liste {
-    margin-top: 30px;
-    margin-left: auto;
+    float:left;
+    margin-top: 15%;
+    margin-left: 20%;
     margin-right: auto;
-    border: 1px solid rgba(0, 0, 0, 0.425);
-    width: 200px;
+    //border: 1px solid rgba(0, 0, 0, 0.425);
+    width: fit-content;
+    height: fit-content;
 }
 
 .liste li{
+    margin-top: 10%;
+    text-align:center;
     list-style-position: outside;
     list-style-type:none;
-   
+    //border: 2px solid rgba(0, 0, 0, 0.425);
 }
 
 .liste button {
-    text-align: left;
-    background-color:rgba(0, 0, 0, 0.616) ;
+    background-color:rgb(70, 70, 207) ;
     margin-left: 10px;
+    border-radius: 10px;
+    border: 4px double #cccccc;
     color: #eeeeee;
-    font-size: 15px;
-    padding: 3px;
-    width: fit-content;
+    font-size: 18px;
+    padding: 9px;
+    width: 300px;
     transition: all 0.3s;
     cursor: pointer;
+}
+
+app-vaccination-center{
+  margin-left: 10%;
+  float:right;
+  position:fixed;
+  bottom: 40%;
 }

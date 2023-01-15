@@ -13,6 +13,9 @@ import org.springframework.data.repository.query.Param;
 public interface AppointmentRepository extends JpaRepository<Appointment,Integer>{
 
     public Optional<Appointment> findByDate(String Date);
+
+    @Query("from Appointment v where date = :date and id_vaccination_center = :id_vaccination_center")
+    public Optional<Appointment> findByDateAndCenterId(@Param("date") String date,@Param("id_vaccination_center") Integer id_vaccination_center);
     
     @Query("from Appointment v where id_patient = :id_patient")
     public List<Appointment> findByPatientId(@Param("id_patient") Integer id_patient);

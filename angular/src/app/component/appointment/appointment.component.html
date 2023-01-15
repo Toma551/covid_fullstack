@@ -1,8 +1,12 @@
 <div class = "appointement">Sélectionnez une date :
 
-<input class = "date" type="date" (change)="setDateOnChange($event)" min="2023-01-01" max="2023-12-31">
-</div>
+  <input class = "date" type="date" (change)="setDateOnChange($event)" min="2023-01-01" max="2023-12-31">
 
+  <div *ngIf="disponible==false"> Pas de RDV disponible dans ce centre le {{this.appointment.date}}.</div>
+  <div *ngIf="disponible==true"> RDV enregistré avec succès le {{this.appointment.date}} !</div>
   <button class = "rdv" (click)="createAppointment(this.appointment)">
     Prendre RDV
   </button>
+</div>
+
+

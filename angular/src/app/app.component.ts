@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
   utilisateur?: Utilisateur;
   constructor(
               private readonly http: HttpClient,
-              private readonly router: Router,
+              public readonly router: Router,
               public readonly loginService: LoginService,
             ) {}
 
